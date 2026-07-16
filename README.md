@@ -6,4 +6,4 @@ GitHub Pages production artifact for the portable Tengai port.
 - Graphics load as standard indexed BMP atlases; other assets are BIN files.
 - Reference CPU and whole-system emulator cores are not linked.
 - C/C++ source and lifting JSON are not published here.
-- No commercial ROM or extracted game asset is included.
+- A built-in converted asset package is loaded automatically.

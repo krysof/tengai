@@ -2,169 +2,120 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="tengao-builtin-package" content="./assets/builtin.assets.zip" />
     <meta name="color-scheme" content="dark" />
-    <meta
-      name="description"
-      content="Tengai 原生 C++ AOT/WASM 移植与 BMP/BIN 资源运行时"
-    />
-    <title>Tengai // WASM Reverse Lab</title>
+    <meta name="description" content="Tengao WebAssembly 游戏移植版" />
+    <title>Tengao</title>
     <link rel="stylesheet" href="./styles.min.css" />
   </head>
   <body>
-    <div class="scanlines" aria-hidden="true"></div>
     <main class="shell">
-      <header class="hero">
-        <div>
-          <p class="eyebrow">PORTABLE REVERSE ENGINEERING / STATIC NATIVE</p>
-          <h1><span>TENGAI</span> WASM REVERSE LAB</h1>
-          <p class="lede">
-            在浏览器本地校验预提取的 BMP/BIN 资源，并直接执行由
-            68EC020 与 Z80 程序生成的 C++/WebAssembly 函数。硬件参数来自外部数据；生产版不解释 CPU 指令，也不链接整机模拟器。
-          </p>
-        </div>
+      <header class="topbar">
+        <h1>TENGAO</h1>
         <div id="core-status" class="core-status loading" data-state="loading">
-          <span class="status-light"></span>
-          <div>
-            <small>CORE STATUS</small>
-            <strong>正在加载 WASM…</strong>
-          </div>
+          <span class="status-light" aria-hidden="true"></span>
+          <strong>正在启动…</strong>
         </div>
       </header>
 
-      <section class="panel intake-panel" aria-labelledby="rom-heading">
-        <div class="panel-heading">
-          <div>
-            <p class="step">01 / ASSET INTAKE</p>
-            <h2 id="rom-heading">加载 BMP/BIN 资源包</h2>
+      <section id="playfield" class="playfield" aria-label="Tengao 游戏与虚拟手柄">
+        <div class="pad-side pad-left">
+          <div id="touch-dpad" class="dpad" aria-label="方向键">
+            <span class="dpad-key dpad-up" data-direction="up">▲</span>
+            <span class="dpad-key dpad-left" data-direction="left">◀</span>
+            <span class="dpad-center"></span>
+            <span class="dpad-key dpad-right" data-direction="right">▶</span>
+            <span class="dpad-key dpad-down" data-direction="down">▼</span>
           </div>
-          <p class="privacy-note">LOCAL ONLY · NO UPLOAD</p>
         </div>
 
-        <label id="drop-zone" class="drop-zone" for="rom-file" tabindex="0">
-          <input id="rom-file" type="file" accept=".zip,application/zip" />
-          <span class="drop-mark" aria-hidden="true">↧</span>
-          <span class="drop-title">拖入 *.assets.zip</span>
-          <span class="drop-copy">也兼容用户自备原 ROM ZIP · 最大 64 MiB</span>
-        </label>
-        <div id="load-error" class="error-message" role="alert" hidden></div>
-      </section>
+        <div class="screen-column">
+          <section id="native-video-panel" class="screen-panel" hidden aria-label="游戏画面">
+            <div class="canvas-frame native-frame-shell">
+              <canvas id="native-frame"></canvas>
+            </div>
+            <div id="native-frame-stats" class="frame-stats">等待执行</div>
+          </section>
 
-      <section id="summary" class="summary-grid" aria-live="polite" hidden>
-        <article class="metric panel">
-          <small>GAME SET</small>
-          <strong id="metric-set">—</strong>
-          <span id="metric-title">—</span>
-        </article>
-        <article class="metric panel">
-          <small>VALIDATION</small>
-          <strong id="metric-validation">—</strong>
-          <span id="metric-files">—</span>
-        </article>
-        <article class="metric panel">
-          <small>INITIAL SP</small>
-          <strong id="metric-sp" class="mono">—</strong>
-          <span>68EC020 supervisor stack</span>
-        </article>
-        <article class="metric panel">
-          <small>RESET PC</small>
-          <strong id="metric-pc" class="mono">—</strong>
-          <span>big-endian vector @ 0x000004</span>
-        </article>
-        <article class="metric panel wide">
-          <small>READ-ONLY DATA IMAGE</small>
-          <strong id="metric-main-crc" class="mono">—</strong>
-          <span id="metric-main-size">—</span>
-        </article>
-      </section>
-
-      <section id="audit-panel" class="panel" hidden aria-labelledby="audit-heading">
-        <div class="panel-heading">
-          <div>
-            <p class="step">02 / INTEGRITY</p>
-            <h2 id="audit-heading">资源清单</h2>
-          </div>
-          <div id="audit-badge" class="badge">等待校验</div>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>文件</th>
-                <th>用途</th>
-                <th>大小</th>
-                <th>CRC-32</th>
-                <th>状态</th>
-              </tr>
-            </thead>
-            <tbody id="audit-rows"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="native-video-panel" class="panel native-video-panel" hidden aria-labelledby="native-video-heading">
-        <div class="panel-heading">
-          <div>
-            <p class="step">03 / NATIVE VIDEO</p>
-            <h2 id="native-video-heading">自研 Psikyo 帧输出</h2>
-          </div>
-          <div id="native-frame-stats" class="badge">等待执行</div>
-        </div>
-        <div class="canvas-frame native-frame-shell">
-          <canvas id="native-frame"></canvas>
-        </div>
-        <p class="diagnostic-note">
-          该画面与声音由直接编译的 M68K/Z80 游戏函数、可移植板级运行时、YMF278B 设备模型、调色板、双背景层和精灵渲染器生成。
-        </p>
-        <p id="native-controls-help" class="diagnostic-note"></p>
-      </section>
-
-      <section id="atlas-panel" class="panel atlas-panel" hidden aria-labelledby="atlas-heading">
-        <div class="panel-heading atlas-heading">
-          <div>
-            <p class="step">04 / GRAPHICS PROBE</p>
-            <h2 id="atlas-heading">16×16×4bpp 图块探针</h2>
-          </div>
-          <div class="atlas-controls">
-            <label>
-              <span>数据源</span>
-              <select id="atlas-source"></select>
+          <section id="boot-panel" class="boot-panel" aria-live="polite">
+            <span class="boot-spinner" aria-hidden="true"></span>
+            <strong id="boot-label">正在加载游戏…</strong>
+            <label id="drop-zone" class="drop-zone" for="asset-file" tabindex="0" hidden>
+              <input id="asset-file" type="file" accept=".zip,application/zip" />
+              <span class="drop-title">选择游戏数据包</span>
             </label>
-            <button id="page-prev" type="button" aria-label="上一页">←</button>
-            <button id="page-next" type="button" aria-label="下一页">→</button>
-          </div>
+          </section>
+
+          <div id="system-buttons" class="system-buttons" aria-label="系统按键"></div>
         </div>
 
-        <div class="canvas-frame">
-          <canvas id="tile-atlas" width="512" height="256"></canvas>
+        <div class="pad-side pad-right">
+          <div id="action-cluster" class="action-cluster" aria-label="动作键"></div>
         </div>
-        <div class="atlas-footer">
-          <input id="page-slider" type="range" min="0" max="0" value="0" />
-          <div>
-            <span id="atlas-page">PAGE —</span>
-            <span id="atlas-stats">—</span>
-          </div>
-        </div>
-        <p class="diagnostic-note">
-          图块来自标准 4-bpp BMP 图集；当前颜色仅用于显示 pen 编号，不是游戏运行时调色板。
-        </p>
       </section>
 
-      <section class="panel log-panel" aria-labelledby="log-heading">
-        <div class="panel-heading compact">
-          <div>
-            <p class="step">EVENT TRACE</p>
-            <h2 id="log-heading">诊断日志</h2>
-          </div>
-          <button id="clear-log" class="ghost-button" type="button">清空</button>
-        </div>
-        <ol id="event-log" class="event-log" aria-live="polite"></ol>
-      </section>
+      <div id="load-error" class="error-message" role="alert" hidden></div>
 
-      <footer>
-        <span id="build-version">core: pending</span>
-        <span>asset-free public shell · direct C++ AOT / WebAssembly</span>
-      </footer>
+      <details id="diagnostics" class="diagnostics">
+        <summary>诊断</summary>
+        <div class="diagnostic-body">
+          <section id="summary" class="summary-grid" aria-live="polite" hidden>
+            <article class="metric panel">
+              <small>GAME SET</small><strong id="metric-set">—</strong><span id="metric-title">—</span>
+            </article>
+            <article class="metric panel">
+              <small>VALIDATION</small><strong id="metric-validation">—</strong><span id="metric-files">—</span>
+            </article>
+            <article class="metric panel">
+              <small>INITIAL SP</small><strong id="metric-sp" class="mono">—</strong>
+            </article>
+            <article class="metric panel">
+              <small>RESET PC</small><strong id="metric-pc" class="mono">—</strong>
+            </article>
+            <article class="metric panel wide">
+              <small>DATA IMAGE</small><strong id="metric-main-crc" class="mono">—</strong><span id="metric-main-size">—</span>
+            </article>
+          </section>
+
+          <section id="audit-panel" class="panel diagnostic-panel" hidden aria-label="资源清单">
+            <div class="panel-heading">
+              <h2>资源清单</h2><div id="audit-badge" class="badge">等待校验</div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>文件</th><th>用途</th><th>大小</th><th>CRC-32</th><th>状态</th></tr></thead>
+                <tbody id="audit-rows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="atlas-panel" class="panel diagnostic-panel" hidden aria-label="图块查看器">
+            <div class="panel-heading atlas-heading">
+              <h2>图块</h2>
+              <div class="atlas-controls">
+                <select id="atlas-source" aria-label="图块数据源"></select>
+                <button id="page-prev" type="button" aria-label="上一页">←</button>
+                <button id="page-next" type="button" aria-label="下一页">→</button>
+              </div>
+            </div>
+            <div class="canvas-frame"><canvas id="tile-atlas" width="512" height="256"></canvas></div>
+            <div class="atlas-footer">
+              <input id="page-slider" type="range" min="0" max="0" value="0" />
+              <span id="atlas-page">PAGE —</span><span id="atlas-stats">—</span>
+            </div>
+          </section>
+
+          <section class="panel diagnostic-panel log-panel" aria-label="诊断日志">
+            <div class="panel-heading">
+              <h2>日志</h2><button id="clear-log" class="ghost-button" type="button">清空</button>
+            </div>
+            <ol id="event-log" class="event-log" aria-live="polite"></ol>
+          </section>
+          <p id="native-controls-help" class="controls-help"></p>
+          <footer><span id="build-version">core: pending</span></footer>
+        </div>
+      </details>
     </main>
     <script type="module" src="./app.min.js"></script>
   </body>
