@@ -1,7 +1,9 @@
-# Tengao
+# TENGAO
 
-Prebuilt GitHub Pages release for the Tengai WASM Reverse Lab.
+Production-only GitHub Pages build for the Tengai WebAssembly player.
 
-- Static production files only; project source code is not included.
-- No game ROM or extracted copyrighted asset is included.
-- Users provide their own `tengaij.zip` or `tengai.zip`, processed locally in browser memory.
+- No game ROMs are included.
+- ROM files selected in the browser stay on the local device.
+- Compiled WebAssembly and minified web assets only; application source is not published in this repository.
+
+Third-party source and license links are recorded in `THIRD_PARTY_LICENSES.txt`.
