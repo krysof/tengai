@@ -2,107 +2,173 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#090b10" />
-    <meta name="description" content="Tengai / 战国之刃浏览器 WASM 可玩版；ROM 只在本机内存中处理。" />
-    <title>TENGAO // Tengai WASM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Tengai 数据驱动的独立 WASM 板级运行时与静态重编译实验室"
+    />
+    <title>Tengai // WASM Reverse Lab</title>
     <link rel="stylesheet" href="./styles.min.css" />
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
-    <main class="app-shell">
-      <header class="masthead">
-        <div class="brand-block">
-          <p class="kicker">PSIKYO 68EC020 · WEBASSEMBLY</p>
-          <h1>TENGA<span>O</span></h1>
-          <p class="subtitle">TENGAI / 戦国ブレード · BROWSER PORT</p>
+    <div class="scanlines" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">PORTABLE REVERSE ENGINEERING / STATIC NATIVE 0.5</p>
+          <h1><span>TENGAI</span> WASM REVERSE LAB</h1>
+          <p class="lede">
+            在浏览器本地校验 ROM，并由自研 WebAssembly 板级运行时执行
+            静态重编译后的 68EC020 与 Z80 程序、MCU、视频和 YMF278B 音频。游戏逻辑和硬件参数来自生成表；生产版不链接 CPU/整机模拟器。
+          </p>
         </div>
-        <div id="core-status" class="status-card loading" data-state="loading">
-          <span class="status-dot" aria-hidden="true"></span>
+        <div id="core-status" class="core-status loading" data-state="loading">
+          <span class="status-light"></span>
           <div>
-            <small>WASM CORE</small>
-            <strong>正在加载可玩核心…</strong>
+            <small>CORE STATUS</small>
+            <strong>正在加载 WASM…</strong>
           </div>
         </div>
       </header>
 
-      <section class="cabinet" aria-label="游戏区域">
-        <div class="screen-column">
-          <div id="screen-frame" class="screen-frame">
-            <canvas id="game-screen" width="320" height="224" aria-label="Tengai 游戏画面"></canvas>
-            <div id="screen-placeholder" class="screen-placeholder">
-              <span class="crosshair" aria-hidden="true"></span>
-              <p>LOAD YOUR ARCADE ROM</p>
-              <small>tengai.zip / tengaij.zip</small>
-            </div>
-            <div id="pause-overlay" class="pause-overlay" hidden>PAUSED</div>
+      <section class="panel intake-panel" aria-labelledby="rom-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="step">01 / ROM INTAKE</p>
+            <h2 id="rom-heading">加载用户自备 ROM</h2>
           </div>
-
-          <div class="toolbar" aria-label="游戏工具栏">
-            <button id="pause-button" type="button" disabled><span>Ⅱ</span> 暂停</button>
-            <button id="reset-button" type="button" disabled><span>↻</span> 重启</button>
-            <button id="mute-button" type="button"><span>◖</span> 声音</button>
-            <button id="fullscreen-button" type="button"><span>⛶</span> 全屏</button>
-            <span id="runtime-meter" class="runtime-meter">— FPS</span>
-          </div>
+          <p class="privacy-note">LOCAL ONLY · NO UPLOAD</p>
         </div>
 
-        <aside class="side-panel">
-          <div class="section-label"><span>01</span> INSERT ROM</div>
-          <label id="drop-zone" class="drop-zone disabled" for="rom-file" tabindex="0">
-            <input id="rom-file" type="file" accept=".zip,application/zip" disabled />
-            <span class="drop-icon" aria-hidden="true">↓</span>
-            <strong>拖入或选择 ROM</strong>
-            <small>文件仅在浏览器本地处理</small>
-          </label>
-          <div id="rom-result" class="rom-result" hidden>
-            <div>
-              <small>ROM SET</small>
-              <strong id="rom-set">—</strong>
-            </div>
-            <div>
-              <small>CHECK</small>
-              <strong id="rom-check">—</strong>
-            </div>
-          </div>
-          <p id="error-message" class="error-message" role="alert" hidden></p>
-
-          <div class="section-label controls-label"><span>02</span> CONTROLS</div>
-          <dl class="key-map">
-            <div><dt>移动</dt><dd>方向键</dd></div>
-            <div><dt>射击 / 蓄力</dt><dd>Z</dd></div>
-            <div><dt>炸弹</dt><dd>X</dd></div>
-            <div><dt>投币</dt><dd>SHIFT</dd></div>
-            <div><dt>开始</dt><dd>ENTER</dd></div>
-          </dl>
-          <p class="gamepad-note">支持标准 USB / 蓝牙手柄与屏幕触控。</p>
-        </aside>
+        <label id="drop-zone" class="drop-zone" for="rom-file" tabindex="0">
+          <input id="rom-file" type="file" accept=".zip,application/zip" />
+          <span class="drop-mark" aria-hidden="true">↧</span>
+          <span class="drop-title">拖入 tengaij.zip 或 tengai.zip</span>
+          <span class="drop-copy">也可以点击选择文件 · 最大 64 MiB</span>
+        </label>
+        <div id="load-error" class="error-message" role="alert" hidden></div>
       </section>
 
-      <section id="touch-controls" class="touch-controls" aria-label="触控按键">
-        <div class="dpad" aria-label="方向键">
-          <button data-button="4" class="up" aria-label="上">▲</button>
-          <button data-button="6" class="left" aria-label="左">◀</button>
-          <i aria-hidden="true"></i>
-          <button data-button="7" class="right" aria-label="右">▶</button>
-          <button data-button="5" class="down" aria-label="下">▼</button>
+      <section id="summary" class="summary-grid" aria-live="polite" hidden>
+        <article class="metric panel">
+          <small>ROM SET</small>
+          <strong id="metric-set">—</strong>
+          <span id="metric-title">—</span>
+        </article>
+        <article class="metric panel">
+          <small>VALIDATION</small>
+          <strong id="metric-validation">—</strong>
+          <span id="metric-files">—</span>
+        </article>
+        <article class="metric panel">
+          <small>INITIAL SP</small>
+          <strong id="metric-sp" class="mono">—</strong>
+          <span>68EC020 supervisor stack</span>
+        </article>
+        <article class="metric panel">
+          <small>RESET PC</small>
+          <strong id="metric-pc" class="mono">—</strong>
+          <span>big-endian vector @ 0x000004</span>
+        </article>
+        <article class="metric panel wide">
+          <small>MERGED MAIN PROGRAM</small>
+          <strong id="metric-main-crc" class="mono">—</strong>
+          <span id="metric-main-size">—</span>
+        </article>
+      </section>
+
+      <section id="audit-panel" class="panel" hidden aria-labelledby="audit-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="step">02 / INTEGRITY</p>
+            <h2 id="audit-heading">ROM 清单</h2>
+          </div>
+          <div id="audit-badge" class="badge">等待校验</div>
         </div>
-        <div class="system-buttons">
-          <button data-button="2">投币</button>
-          <button data-button="3">开始</button>
-        </div>
-        <div class="action-buttons">
-          <button data-button="8" class="bomb"><small>BOMB</small>X</button>
-          <button data-button="0" class="fire"><small>FIRE</small>Z</button>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>文件</th>
+                <th>用途</th>
+                <th>大小</th>
+                <th>CRC-32</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody id="audit-rows"></tbody>
+          </table>
         </div>
       </section>
 
-      <section class="notice-bar">
-        <p><strong>ROM-FREE BUILD</strong> 页面不含游戏 ROM；请选择你有权使用的 ROM 备份。</p>
-        <p>FBNeo core · local-only processing · <a href="./THIRD_PARTY_LICENSES.txt">licenses</a></p>
+      <section id="native-video-panel" class="panel native-video-panel" hidden aria-labelledby="native-video-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="step">03 / NATIVE VIDEO</p>
+            <h2 id="native-video-heading">自研 Psikyo 帧输出</h2>
+          </div>
+          <div id="native-frame-stats" class="badge">等待执行</div>
+        </div>
+        <div class="canvas-frame native-frame-shell">
+          <canvas id="native-frame"></canvas>
+        </div>
+        <p class="diagnostic-note">
+          该画面与声音由项目自己的板级运行时、Z80/YMF278B、调色板、双背景层和精灵渲染器生成；未调用 FBNeo/MAME。
+        </p>
+        <p id="native-controls-help" class="diagnostic-note"></p>
       </section>
+
+      <section id="atlas-panel" class="panel atlas-panel" hidden aria-labelledby="atlas-heading">
+        <div class="panel-heading atlas-heading">
+          <div>
+            <p class="step">04 / GRAPHICS PROBE</p>
+            <h2 id="atlas-heading">16×16×4bpp 图块探针</h2>
+          </div>
+          <div class="atlas-controls">
+            <label>
+              <span>数据源</span>
+              <select id="atlas-source">
+                <option value="tiles">背景图块 · u34.bin</option>
+                <option value="sprites">精灵图块 · u20/u22/u21</option>
+              </select>
+            </label>
+            <button id="page-prev" type="button" aria-label="上一页">←</button>
+            <button id="page-next" type="button" aria-label="下一页">→</button>
+          </div>
+        </div>
+
+        <div class="canvas-frame">
+          <canvas id="tile-atlas" width="512" height="256"></canvas>
+        </div>
+        <div class="atlas-footer">
+          <input id="page-slider" type="range" min="0" max="0" value="0" />
+          <div>
+            <span id="atlas-page">PAGE —</span>
+            <span id="atlas-stats">—</span>
+          </div>
+        </div>
+        <p class="diagnostic-note">
+          当前颜色是诊断调色板，仅用于确认 ROM 排列和 4bpp nibble 顺序；不是游戏实际调色板。
+        </p>
+      </section>
+
+      <section class="panel log-panel" aria-labelledby="log-heading">
+        <div class="panel-heading compact">
+          <div>
+            <p class="step">EVENT TRACE</p>
+            <h2 id="log-heading">诊断日志</h2>
+          </div>
+          <button id="clear-log" class="ghost-button" type="button">清空</button>
+        </div>
+        <ol id="event-log" class="event-log" aria-live="polite"></ol>
+      </section>
+
+      <footer>
+        <span id="build-version">core: pending</span>
+        <span>ROM-free research build · C++17 / WebAssembly</span>
+      </footer>
     </main>
-
     <script type="module" src="./app.min.js"></script>
   </body>
 </html>

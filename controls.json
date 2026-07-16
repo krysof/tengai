@@ -1,0 +1,235 @@
+{
+  "schema": "tengao.controls/v1",
+  "display": {
+    "help_zh": "实时输入：1P 投币/开始为 5/1，方向键移动，Z/X/C 操作；2P 为 6/2、WASD、F/G/H。也支持标准双手柄。"
+  },
+  "archive": {
+    "max_zip_bytes": 67108864,
+    "max_expanded_bytes": 25165824
+  },
+  "runtime": {
+    "maximum_catchup_frames": 4,
+    "maximum_elapsed_ms": 100,
+    "stats_update_ms": 250
+  },
+  "audio": {
+    "worklet": "./audio-worklet.js",
+    "maximum_pull_frames": 4096,
+    "queue_capacity_frames": 32768,
+    "gain": 0.85
+  },
+  "keyboard": [
+    {
+      "code": "Digit5",
+      "input": "p1_coin"
+    },
+    {
+      "code": "Digit1",
+      "input": "p1_start"
+    },
+    {
+      "code": "ArrowUp",
+      "input": "p1_up"
+    },
+    {
+      "code": "ArrowDown",
+      "input": "p1_down"
+    },
+    {
+      "code": "ArrowLeft",
+      "input": "p1_left"
+    },
+    {
+      "code": "ArrowRight",
+      "input": "p1_right"
+    },
+    {
+      "code": "KeyZ",
+      "input": "p1_button1"
+    },
+    {
+      "code": "KeyX",
+      "input": "p1_button2"
+    },
+    {
+      "code": "KeyC",
+      "input": "p1_button3"
+    },
+    {
+      "code": "Digit6",
+      "input": "p2_coin"
+    },
+    {
+      "code": "Digit2",
+      "input": "p2_start"
+    },
+    {
+      "code": "KeyW",
+      "input": "p2_up"
+    },
+    {
+      "code": "KeyS",
+      "input": "p2_down"
+    },
+    {
+      "code": "KeyA",
+      "input": "p2_left"
+    },
+    {
+      "code": "KeyD",
+      "input": "p2_right"
+    },
+    {
+      "code": "KeyF",
+      "input": "p2_button1"
+    },
+    {
+      "code": "KeyG",
+      "input": "p2_button2"
+    },
+    {
+      "code": "KeyH",
+      "input": "p2_button3"
+    },
+    {
+      "code": "F2",
+      "input": "test"
+    },
+    {
+      "code": "F3",
+      "input": "service"
+    }
+  ],
+  "gamepads": [
+    {
+      "index": 0,
+      "bindings": [
+        {
+          "button": 8,
+          "input": "p1_coin"
+        },
+        {
+          "button": 9,
+          "input": "p1_start"
+        },
+        {
+          "button": 0,
+          "input": "p1_button1"
+        },
+        {
+          "button": 1,
+          "input": "p1_button2"
+        },
+        {
+          "button": 2,
+          "input": "p1_button3"
+        },
+        {
+          "button": 12,
+          "input": "p1_up"
+        },
+        {
+          "button": 13,
+          "input": "p1_down"
+        },
+        {
+          "button": 14,
+          "input": "p1_left"
+        },
+        {
+          "button": 15,
+          "input": "p1_right"
+        },
+        {
+          "axis": 0,
+          "direction": -1,
+          "threshold": 0.5,
+          "input": "p1_left"
+        },
+        {
+          "axis": 0,
+          "direction": 1,
+          "threshold": 0.5,
+          "input": "p1_right"
+        },
+        {
+          "axis": 1,
+          "direction": -1,
+          "threshold": 0.5,
+          "input": "p1_up"
+        },
+        {
+          "axis": 1,
+          "direction": 1,
+          "threshold": 0.5,
+          "input": "p1_down"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "bindings": [
+        {
+          "button": 8,
+          "input": "p2_coin"
+        },
+        {
+          "button": 9,
+          "input": "p2_start"
+        },
+        {
+          "button": 0,
+          "input": "p2_button1"
+        },
+        {
+          "button": 1,
+          "input": "p2_button2"
+        },
+        {
+          "button": 2,
+          "input": "p2_button3"
+        },
+        {
+          "button": 12,
+          "input": "p2_up"
+        },
+        {
+          "button": 13,
+          "input": "p2_down"
+        },
+        {
+          "button": 14,
+          "input": "p2_left"
+        },
+        {
+          "button": 15,
+          "input": "p2_right"
+        },
+        {
+          "axis": 0,
+          "direction": -1,
+          "threshold": 0.5,
+          "input": "p2_left"
+        },
+        {
+          "axis": 0,
+          "direction": 1,
+          "threshold": 0.5,
+          "input": "p2_right"
+        },
+        {
+          "axis": 1,
+          "direction": -1,
+          "threshold": 0.5,
+          "input": "p2_up"
+        },
+        {
+          "axis": 1,
+          "direction": 1,
+          "threshold": 0.5,
+          "input": "p2_down"
+        }
+      ]
+    }
+  ]
+}

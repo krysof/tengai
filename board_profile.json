@@ -1,0 +1,1619 @@
+{
+  "schema": "tengao.board/v1",
+  "id": "psikyo-tengai",
+  "name": "Psikyo Tengai / Sengoku Blade board",
+  "provenance": {
+    "mame_source": "https://github.com/mamedev/mame/blob/master/src/mame/psikyo/psikyo.cpp",
+    "mame_video_source": "https://github.com/mamedev/mame/blob/master/src/mame/psikyo/psikyo_v.cpp",
+    "mame_revision": "a8acf5e8e91f72ebfb241b42c31eb70e441b12ab"
+  },
+  "runtime": {
+    "address_mask": 16777215,
+    "main_cpu": {
+      "architecture": "m68ec020",
+      "execution_backend": "static_recompiler",
+      "reset_cycles": 4,
+      "interrupts": {
+        "autovector_base": 24,
+        "uninitialized_vector": 15,
+        "vector_entry_bytes": 4,
+        "frame_format": 0,
+        "frame_vector_shift": 2,
+        "entry_cycles": 30,
+        "clear_on_acknowledge": true
+      },
+      "aot": {
+        "schema": "tengao.m68k-aot/v1",
+        "rom_sha256": "48ee3f0efe903788189ba358550ec3389ebaff3ef8bdcf4fb638800d04f6dbc6",
+        "blocks": [
+          {
+            "kind": "dual_copy_long_dbra",
+            "entry": 1822,
+            "source_address_registers": [
+              0,
+              1
+            ],
+            "destination_address_registers": [
+              2,
+              3
+            ],
+            "counter_data_register": 3,
+            "loop_cycles": 22,
+            "instructions": [
+              {
+                "pc": 1822,
+                "opcode": 9432,
+                "cycles": 8
+              },
+              {
+                "pc": 1824,
+                "opcode": 9945,
+                "cycles": 8
+              },
+              {
+                "pc": 1826,
+                "opcode": 20939,
+                "cycles": 6
+              }
+            ],
+            "observed_iterations": 177296
+          },
+          {
+            "kind": "counter_wait_zero_word",
+            "entry": 2558,
+            "counter_address": 4294836224,
+            "counter_increment": 1,
+            "signal_address": 4294874540,
+            "signal_mask": 65535,
+            "loop_cycles": 20,
+            "instructions": [
+              {
+                "pc": 2558,
+                "opcode": 21177,
+                "cycles": 8
+              },
+              {
+                "pc": 2564,
+                "opcode": 19065,
+                "cycles": 6
+              },
+              {
+                "pc": 2570,
+                "opcode": 26610,
+                "cycles": 6
+              }
+            ],
+            "observed_iterations": 13067185
+          },
+          {
+            "kind": "clear_word_indexed_counted",
+            "entry": 4492,
+            "base_address_register": 6,
+            "index_data_register": 2,
+            "index_scale": 2,
+            "displacement": -134,
+            "counter_increment": 1,
+            "limit": 67,
+            "loop_cycles": 23,
+            "instructions": [
+              {
+                "pc": 4492,
+                "opcode": 17014,
+                "cycles": 13
+              },
+              {
+                "pc": 4498,
+                "opcode": 21058,
+                "cycles": 2
+              },
+              {
+                "pc": 4500,
+                "opcode": 3138,
+                "cycles": 2
+              },
+              {
+                "pc": 4504,
+                "opcode": 28146,
+                "cycles": 6
+              }
+            ],
+            "observed_iterations": 105056
+          },
+          {
+            "kind": "add_word_indexed_counted",
+            "entry": 4660,
+            "base_address_register": 6,
+            "index_data_register": 2,
+            "index_scale": 2,
+            "source_displacement": -136,
+            "destination_displacement": -134,
+            "counter_increment": 1,
+            "limit": 67,
+            "loop_cycles": 34,
+            "instructions": [
+              {
+                "pc": 4660,
+                "opcode": 12342,
+                "cycles": 11
+              },
+              {
+                "pc": 4666,
+                "opcode": 53622,
+                "cycles": 13
+              },
+              {
+                "pc": 4672,
+                "opcode": 21058,
+                "cycles": 2
+              },
+              {
+                "pc": 4674,
+                "opcode": 3138,
+                "cycles": 2
+              },
+              {
+                "pc": 4678,
+                "opcode": 28140,
+                "cycles": 6
+              }
+            ],
+            "observed_iterations": 103422
+          },
+          {
+            "kind": "copy_word_indexed_counted",
+            "entry": 101044,
+            "index_data_register": 1,
+            "counter_increment": 1,
+            "limit": 224,
+            "copies": [
+              {
+                "source_address": 4294869296,
+                "source_scale": 4,
+                "destination_address": 4294870320,
+                "destination_scale": 2
+              },
+              {
+                "source_address": 4294871856,
+                "source_scale": 4,
+                "destination_address": 4294872880,
+                "destination_scale": 2
+              }
+            ],
+            "loop_cycles": 62,
+            "instructions": [
+              {
+                "pc": 101044,
+                "opcode": 12720,
+                "cycles": 26
+              },
+              {
+                "pc": 101058,
+                "opcode": 12720,
+                "cycles": 26
+              },
+              {
+                "pc": 101072,
+                "opcode": 21057,
+                "cycles": 2
+              },
+              {
+                "pc": 101074,
+                "opcode": 3137,
+                "cycles": 2
+              },
+              {
+                "pc": 101078,
+                "opcode": 28124,
+                "cycles": 6
+              }
+            ],
+            "observed_iterations": 175616
+          },
+          {
+            "kind": "copy_word_indexed_counted",
+            "entry": 101084,
+            "index_data_register": 1,
+            "counter_increment": 1,
+            "limit": 224,
+            "copies": [
+              {
+                "source_address": 4294869296,
+                "source_scale": 4,
+                "destination_address": 4294870832,
+                "destination_scale": 2
+              },
+              {
+                "source_address": 4294871856,
+                "source_scale": 4,
+                "destination_address": 4294873392,
+                "destination_scale": 2
+              }
+            ],
+            "loop_cycles": 62,
+            "instructions": [
+              {
+                "pc": 101084,
+                "opcode": 12720,
+                "cycles": 26
+              },
+              {
+                "pc": 101098,
+                "opcode": 12720,
+                "cycles": 26
+              },
+              {
+                "pc": 101112,
+                "opcode": 21057,
+                "cycles": 2
+              },
+              {
+                "pc": 101114,
+                "opcode": 3137,
+                "cycles": 2
+              },
+              {
+                "pc": 101118,
+                "opcode": 28124,
+                "cycles": 6
+              }
+            ],
+            "observed_iterations": 175616
+          },
+          {
+            "kind": "scale_xrgb555_counted",
+            "entry": 104628,
+            "source_address_register": 2,
+            "factor_address_register": 3,
+            "destination_data_register": 6,
+            "counter_data_register": 2,
+            "source_stride": 2,
+            "destination_stride": 2,
+            "counter_increment": 1,
+            "limit": 16,
+            "component_masks": [
+              31744,
+              992,
+              31
+            ],
+            "divisor_shift": 5,
+            "output_or_mask": 32768,
+            "loop_cycles": 187,
+            "instructions": [
+              {
+                "pc": 104628,
+                "opcode": 29184,
+                "cycles": 2
+              },
+              {
+                "pc": 104630,
+                "opcode": 12818,
+                "cycles": 6
+              },
+              {
+                "pc": 104632,
+                "opcode": 8257,
+                "cycles": 2
+              },
+              {
+                "pc": 104634,
+                "opcode": 577,
+                "cycles": 2
+              },
+              {
+                "pc": 104638,
+                "opcode": 60033,
+                "cycles": 6
+              },
+              {
+                "pc": 104640,
+                "opcode": 50131,
+                "cycles": 31
+              },
+              {
+                "pc": 104642,
+                "opcode": 28672,
+                "cycles": 2
+              },
+              {
+                "pc": 104644,
+                "opcode": 12289,
+                "cycles": 2
+              },
+              {
+                "pc": 104646,
+                "opcode": 576,
+                "cycles": 2
+              },
+              {
+                "pc": 104650,
+                "opcode": 8712,
+                "cycles": 2
+              },
+              {
+                "pc": 104652,
+                "opcode": 577,
+                "cycles": 2
+              },
+              {
+                "pc": 104656,
+                "opcode": 60033,
+                "cycles": 6
+              },
+              {
+                "pc": 104658,
+                "opcode": 50131,
+                "cycles": 31
+              },
+              {
+                "pc": 104660,
+                "opcode": 12353,
+                "cycles": 2
+              },
+              {
+                "pc": 104662,
+                "opcode": 29184,
+                "cycles": 2
+              },
+              {
+                "pc": 104664,
+                "opcode": 12808,
+                "cycles": 2
+              },
+              {
+                "pc": 104666,
+                "opcode": 577,
+                "cycles": 2
+              },
+              {
+                "pc": 104670,
+                "opcode": 32897,
+                "cycles": 2
+              },
+              {
+                "pc": 104672,
+                "opcode": 8256,
+                "cycles": 2
+              },
+              {
+                "pc": 104674,
+                "opcode": 12818,
+                "cycles": 6
+              },
+              {
+                "pc": 104676,
+                "opcode": 577,
+                "cycles": 2
+              },
+              {
+                "pc": 104680,
+                "opcode": 50131,
+                "cycles": 31
+              },
+              {
+                "pc": 104682,
+                "opcode": 18625,
+                "cycles": 4
+              },
+              {
+                "pc": 104684,
+                "opcode": 60033,
+                "cycles": 6
+              },
+              {
+                "pc": 104686,
+                "opcode": 28703,
+                "cycles": 2
+              },
+              {
+                "pc": 104688,
+                "opcode": 49792,
+                "cycles": 2
+              },
+              {
+                "pc": 104690,
+                "opcode": 8200,
+                "cycles": 2
+              },
+              {
+                "pc": 104692,
+                "opcode": 32897,
+                "cycles": 2
+              },
+              {
+                "pc": 104694,
+                "opcode": 64,
+                "cycles": 2
+              },
+              {
+                "pc": 104698,
+                "opcode": 8262,
+                "cycles": 2
+              },
+              {
+                "pc": 104700,
+                "opcode": 21638,
+                "cycles": 2
+              },
+              {
+                "pc": 104702,
+                "opcode": 12416,
+                "cycles": 4
+              },
+              {
+                "pc": 104704,
+                "opcode": 21642,
+                "cycles": 2
+              },
+              {
+                "pc": 104706,
+                "opcode": 21058,
+                "cycles": 2
+              },
+              {
+                "pc": 104708,
+                "opcode": 3138,
+                "cycles": 2
+              },
+              {
+                "pc": 104712,
+                "opcode": 28074,
+                "cycles": 6
+              }
+            ],
+            "observed_iterations": 100864
+          }
+        ]
+      }
+    },
+    "memory_regions": [
+      {
+        "id": "main_rom",
+        "base": 0,
+        "size": 1048576,
+        "access": "r"
+      },
+      {
+        "id": "sprite_ram",
+        "base": 4194304,
+        "size": 8192,
+        "access": "rw"
+      },
+      {
+        "id": "palette_ram",
+        "base": 6291456,
+        "size": 8192,
+        "access": "rw"
+      },
+      {
+        "id": "layer0_ram",
+        "base": 8388608,
+        "size": 8192,
+        "access": "rw"
+      },
+      {
+        "id": "layer1_ram",
+        "base": 8396800,
+        "size": 8192,
+        "access": "rw"
+      },
+      {
+        "id": "video_registers",
+        "base": 8404992,
+        "size": 16384,
+        "access": "rw"
+      },
+      {
+        "id": "io",
+        "base": 12582912,
+        "size": 20,
+        "access": "rw"
+      },
+      {
+        "id": "work_ram",
+        "base": 16646144,
+        "size": 131072,
+        "access": "rw"
+      }
+    ],
+    "timing": {
+      "id": "mame-hardware",
+      "main_clock_hz": 16000000,
+      "refresh_numerator": 14318181,
+      "refresh_denominator": 238944,
+      "vblank_position_numerator": 224,
+      "vblank_position_denominator": 262,
+      "vblank_irq_level": 4
+    },
+    "io": {
+      "register_offsets": {
+        "players": 0,
+        "system": 2,
+        "dip": 4,
+        "mcu_data": 6,
+        "mcu_status": 8,
+        "sound_word": 16,
+        "sound_byte": 17
+      },
+      "defaults": {
+        "players": 65535,
+        "system": 65535,
+        "dip": 65533,
+        "region": 15
+      },
+      "bits": {
+        "mcu_status_pulse": 4,
+        "sound_pending": 128,
+        "region_mask": 15,
+        "flip_screen_dip_mask": 1,
+        "flip_screen_dip_value": 0
+      },
+      "inputs": [
+        {
+          "id": "p1_start",
+          "port": "players",
+          "bit": 8,
+          "active": "low"
+        },
+        {
+          "id": "p1_button3",
+          "port": "players",
+          "bit": 9,
+          "active": "low"
+        },
+        {
+          "id": "p1_button2",
+          "port": "players",
+          "bit": 10,
+          "active": "low"
+        },
+        {
+          "id": "p1_button1",
+          "port": "players",
+          "bit": 11,
+          "active": "low"
+        },
+        {
+          "id": "p1_left",
+          "port": "players",
+          "bit": 12,
+          "active": "low"
+        },
+        {
+          "id": "p1_right",
+          "port": "players",
+          "bit": 13,
+          "active": "low"
+        },
+        {
+          "id": "p1_down",
+          "port": "players",
+          "bit": 14,
+          "active": "low"
+        },
+        {
+          "id": "p1_up",
+          "port": "players",
+          "bit": 15,
+          "active": "low"
+        },
+        {
+          "id": "p2_start",
+          "port": "players",
+          "bit": 0,
+          "active": "low"
+        },
+        {
+          "id": "p2_button3",
+          "port": "players",
+          "bit": 1,
+          "active": "low"
+        },
+        {
+          "id": "p2_button2",
+          "port": "players",
+          "bit": 2,
+          "active": "low"
+        },
+        {
+          "id": "p2_button1",
+          "port": "players",
+          "bit": 3,
+          "active": "low"
+        },
+        {
+          "id": "p2_left",
+          "port": "players",
+          "bit": 4,
+          "active": "low"
+        },
+        {
+          "id": "p2_right",
+          "port": "players",
+          "bit": 5,
+          "active": "low"
+        },
+        {
+          "id": "p2_down",
+          "port": "players",
+          "bit": 6,
+          "active": "low"
+        },
+        {
+          "id": "p2_up",
+          "port": "players",
+          "bit": 7,
+          "active": "low"
+        },
+        {
+          "id": "p1_coin",
+          "port": "system",
+          "bit": 0,
+          "active": "low"
+        },
+        {
+          "id": "p2_coin",
+          "port": "system",
+          "bit": 1,
+          "active": "low"
+        },
+        {
+          "id": "service",
+          "port": "system",
+          "bit": 4,
+          "active": "low"
+        },
+        {
+          "id": "test",
+          "port": "system",
+          "bit": 5,
+          "active": "low"
+        }
+      ]
+    },
+    "mcu": {
+      "register_offsets": {
+        "input_latch": 6,
+        "bank_control": 7,
+        "control": 8,
+        "direction": 9,
+        "command": 11
+      },
+      "reset": {
+        "direction": 0,
+        "input_latch": 255,
+        "output_latch_1": 255,
+        "output_latch_2": 255,
+        "table_index": 0,
+        "pending_flags": 5,
+        "mode": 0,
+        "control": 255,
+        "bank_control": 0
+      },
+      "commands": [
+        {
+          "value": 284,
+          "operation": "select_lookup"
+        },
+        {
+          "value": 19,
+          "operation": "read_lookup"
+        },
+        {
+          "value": 275,
+          "operation": "set_mode"
+        },
+        {
+          "value": 16,
+          "operation": "set_latch_1_ready"
+        },
+        {
+          "value": 272,
+          "operation": "set_latch_1_ready"
+        }
+      ],
+      "lookup_table": [
+        0,
+        0,
+        100,
+        174,
+        0,
+        0,
+        38,
+        44,
+        0,
+        0,
+        44,
+        218,
+        0,
+        0,
+        44,
+        188,
+        0,
+        0,
+        44,
+        158,
+        0,
+        0,
+        47,
+        14,
+        0,
+        0,
+        49,
+        16,
+        0,
+        0,
+        197,
+        30,
+        0,
+        0,
+        50,
+        144,
+        0,
+        0,
+        172,
+        92,
+        0,
+        0,
+        43,
+        192,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_one_response": 85,
+      "status_or_mask": 8,
+      "tile_banks": [
+        {
+          "shift": 4,
+          "mask": 3
+        },
+        {
+          "shift": 6,
+          "mask": 3
+        }
+      ],
+      "protocol_bits": {
+        "latch_1_pending": 4,
+        "latch_2_pending": 1,
+        "control_select_latch_1": 16,
+        "mode_one": 1,
+        "bank_read_mask": 240,
+        "mode_non_one_pending": 2,
+        "direction_command_bit": 256,
+        "empty_response": 65280
+      }
+    },
+    "video": {
+      "screen": {
+        "width": 320,
+        "height": 224
+      },
+      "palette": {
+        "entries": 4096,
+        "word_endian": "big",
+        "red_shift": 10,
+        "green_shift": 5,
+        "blue_shift": 0,
+        "component_bits": 5,
+        "component_table": [
+          0,
+          8,
+          16,
+          24,
+          33,
+          41,
+          49,
+          57,
+          66,
+          74,
+          82,
+          90,
+          99,
+          107,
+          115,
+          123,
+          132,
+          140,
+          148,
+          156,
+          165,
+          173,
+          181,
+          189,
+          198,
+          206,
+          214,
+          222,
+          231,
+          239,
+          247,
+          255
+        ]
+      },
+      "packed_tile": {
+        "width": 16,
+        "height": 16,
+        "bits_per_pixel": 4,
+        "bytes": 128,
+        "first_nibble": "high"
+      },
+      "tile_descriptor": {
+        "code_mask": 8191,
+        "color_mask": 7,
+        "color_shift": 13,
+        "bank_stride": 8192
+      },
+      "layer_control": {
+        "enable_mask": 1,
+        "enable_value": 0,
+        "opaque_mask": 2,
+        "transparent_select_mask": 8,
+        "transparent_when_set": 0,
+        "transparent_when_clear": 15,
+        "size_mask": 192,
+        "size_shift": 6,
+        "rowscroll_enable_mask": 768,
+        "tile_rowscroll_mask": 512,
+        "tile_rowscroll_shift": 4
+      },
+      "map_width_tiles": [
+        64,
+        128,
+        256,
+        32
+      ],
+      "layers": [
+        {
+          "ram_region": "layer0_ram",
+          "palette_base": 2048,
+          "control_offset": 1042,
+          "scroll_x_offset": 1030,
+          "scroll_y_offset": 1026,
+          "rowscroll_offset": 0,
+          "priority_bit": 2
+        },
+        {
+          "ram_region": "layer1_ram",
+          "palette_base": 3072,
+          "control_offset": 1046,
+          "scroll_x_offset": 1038,
+          "scroll_y_offset": 1034,
+          "rowscroll_offset": 512,
+          "priority_bit": 4
+        }
+      ],
+      "background": {
+        "source_layer": 0
+      },
+      "sprite": {
+        "ram_region": "sprite_ram",
+        "list_base": 6144,
+        "control_offset": 8190,
+        "record_stride": 8,
+        "index_modulo": 768,
+        "maximum_list_entries": 1023,
+        "list_terminator": 65535,
+        "disable_mask": 1,
+        "transparent_pens": [
+          {
+            "mask": 4,
+            "pen": 0
+          },
+          {
+            "mask": 8,
+            "pen": 15
+          }
+        ],
+        "priority_mask": 192,
+        "priority_shift": 6,
+        "priority_masks": [
+          0,
+          252,
+          255,
+          255
+        ],
+        "color_mask": 7936,
+        "color_shift": 8,
+        "flip_x_mask": 16384,
+        "flip_y_mask": 32768,
+        "code_high_mask": 1,
+        "code_high_shift": 16,
+        "lut_endian": "little",
+        "position_mask": 511,
+        "x_negative_threshold": 384,
+        "x_wrap": 512,
+        "y_sign_mask": 256,
+        "size_mask": 7,
+        "size_shift": 9,
+        "zoom_mask": 15,
+        "zoom_shift": 12,
+        "zoom_base": 32,
+        "maximum_tiles_x": 8,
+        "maximum_tiles_y": 8,
+        "record_offsets": {
+          "y": 0,
+          "x": 2,
+          "attributes": 4,
+          "code": 6
+        },
+        "y_value_mask": 255,
+        "position_adjust_add": 2,
+        "position_adjust_divisor": 4,
+        "tile_scale_divisor": 2
+      }
+    },
+    "audio": {
+      "mix": {
+        "sample_rate": 44100,
+        "channels": 1,
+        "buffer_frames": 16384
+      },
+    "cpu": {
+      "architecture": "z80",
+      "execution_backend": "static_recompiler",
+      "clock_hz": 8000000,
+        "io_address_mask": 255,
+      "reset_bank": 0,
+      "interleave_slices": 256,
+      "reset": {
+        "pc": 0,
+        "sp": 65535,
+        "af": 65535,
+        "bc": 0,
+        "de": 0,
+        "hl": 0,
+        "ix": 0,
+        "iy": 0,
+        "i": 0,
+        "r": 0,
+        "interrupt_mode": 0
+      },
+      "interrupts": {
+        "nmi_vector": 102,
+        "mode1_vector": 56,
+        "interrupt_data": 255,
+        "halt_cycles": 4,
+        "nmi_cycles": 11,
+        "mode0_cycles": 11,
+        "mode0_opcode_cycles": 11,
+        "mode1_cycles": 13,
+        "mode2_cycles": 19
+      },
+      "memory_regions": [
+          {
+            "id": "fixed_rom",
+            "operation": "rom",
+            "start": 0,
+            "size": 32768,
+            "rom_offset": 0
+          },
+          {
+            "id": "work_ram",
+            "operation": "ram",
+            "start": 32768,
+            "size": 512
+          },
+          {
+            "id": "banked_rom",
+            "operation": "banked_rom",
+            "start": 33280,
+            "size": 32256,
+            "rom_offset": 512,
+            "bank_stride": 32768,
+            "bank_entries": 4
+          }
+        ],
+        "io_regions": [
+          {
+            "id": "bank_select",
+            "operation": "bank_select",
+            "start": 0,
+            "size": 1,
+            "value_shift": 4,
+            "value_mask": 3
+          },
+          {
+            "id": "ignored_control",
+            "operation": "ignore_write",
+            "start": 2,
+            "size": 2
+          },
+          {
+            "id": "ymf278b",
+            "operation": "ymf278b",
+            "start": 8,
+            "size": 6
+          },
+          {
+            "id": "sound_latch",
+            "operation": "sound_latch_read",
+            "start": 16,
+            "size": 1
+          },
+          {
+            "id": "sound_ack",
+            "operation": "sound_latch_ack",
+            "start": 24,
+            "size": 1
+          }
+        ]
+      },
+      "ymf278b": {
+        "clock_hz": 33868800,
+        "clocks_per_sample": 768,
+        "sample_rom_region": "ymf-samples",
+        "register_port_count": 6
+      }
+    },
+    "diagnostics": {
+      "boot_probe_frames": 180,
+      "atlas": {
+        "columns": 32,
+        "rows": 16
+      },
+      "tile_palette": [
+        [
+          9,
+          12,
+          20,
+          255
+        ],
+        [
+          33,
+          62,
+          116,
+          255
+        ],
+        [
+          43,
+          116,
+          178,
+          255
+        ],
+        [
+          42,
+          177,
+          194,
+          255
+        ],
+        [
+          42,
+          202,
+          123,
+          255
+        ],
+        [
+          119,
+          220,
+          88,
+          255
+        ],
+        [
+          205,
+          226,
+          82,
+          255
+        ],
+        [
+          255,
+          210,
+          92,
+          255
+        ],
+        [
+          251,
+          161,
+          75,
+          255
+        ],
+        [
+          240,
+          96,
+          96,
+          255
+        ],
+        [
+          214,
+          71,
+          128,
+          255
+        ],
+        [
+          168,
+          70,
+          170,
+          255
+        ],
+        [
+          113,
+          75,
+          179,
+          255
+        ],
+        [
+          137,
+          141,
+          179,
+          255
+        ],
+        [
+          198,
+          203,
+          221,
+          255
+        ],
+        [
+          247,
+          249,
+          255,
+          255
+        ]
+      ]
+    }
+  },
+  "rom": {
+    "regions": [
+      {
+        "id": "maincpu",
+        "size": 1048576,
+        "loads": [
+          {
+            "role": "maincpu-lane10",
+            "destination": 0,
+            "group": 2,
+            "stride": 4,
+            "reverse_group": true
+          },
+          {
+            "role": "maincpu-lane32",
+            "destination": 2,
+            "group": 2,
+            "stride": 4,
+            "reverse_group": true
+          }
+        ]
+      },
+      {
+        "id": "audiocpu",
+        "size": 131072,
+        "loads": [
+          {
+            "role": "audiocpu",
+            "destination": 0,
+            "group": 1,
+            "stride": 1
+          }
+        ]
+      },
+      {
+        "id": "sprites",
+        "size": 6291456,
+        "loads": [
+          {
+            "role": "sprites-0",
+            "destination": 0,
+            "group": 1,
+            "stride": 1
+          },
+          {
+            "role": "sprites-1",
+            "destination": 2097152,
+            "group": 1,
+            "stride": 1
+          },
+          {
+            "role": "sprites-2",
+            "destination": 4194304,
+            "group": 1,
+            "stride": 1
+          }
+        ]
+      },
+      {
+        "id": "tiles",
+        "size": 4194304,
+        "loads": [
+          {
+            "role": "tiles",
+            "destination": 0,
+            "group": 1,
+            "stride": 1
+          }
+        ]
+      },
+      {
+        "id": "ymf-samples",
+        "size": 4194304,
+        "loads": [
+          {
+            "role": "ymf-samples-0",
+            "destination": 0,
+            "group": 1,
+            "stride": 1
+          },
+          {
+            "role": "ymf-samples-1",
+            "destination": 2097152,
+            "group": 1,
+            "stride": 1
+          }
+        ]
+      },
+      {
+        "id": "sprite-lut",
+        "size": 262144,
+        "loads": [
+          {
+            "role": "sprite-lut",
+            "destination": 0,
+            "group": 1,
+            "stride": 1
+          }
+        ]
+      }
+    ],
+    "sets": {
+      "tengaij": {
+        "title": "Sengoku Blade (Japan)",
+        "main_lanes": [
+          "2-u40.bin",
+          "3-u41.bin"
+        ],
+        "files": [
+          {
+            "name": "2-u40.bin",
+            "size": 524288,
+            "crc32": "ab6fe58a",
+            "role": "maincpu-lane10"
+          },
+          {
+            "name": "3-u41.bin",
+            "size": 524288,
+            "crc32": "02e42e39",
+            "role": "maincpu-lane32"
+          },
+          {
+            "name": "1-u63.bin",
+            "size": 131072,
+            "crc32": "2025e387",
+            "role": "audiocpu"
+          },
+          {
+            "name": "u20.bin",
+            "size": 2097152,
+            "crc32": "ed42ef73",
+            "role": "sprites-0"
+          },
+          {
+            "name": "u22.bin",
+            "size": 2097152,
+            "crc32": "8d21caee",
+            "role": "sprites-1"
+          },
+          {
+            "name": "u21.bin",
+            "size": 2097152,
+            "crc32": "efe34eed",
+            "role": "sprites-2"
+          },
+          {
+            "name": "u34.bin",
+            "size": 4194304,
+            "crc32": "2a2e2eeb",
+            "role": "tiles"
+          },
+          {
+            "name": "u61.bin",
+            "size": 2097152,
+            "crc32": "a63633c5",
+            "role": "ymf-samples-0"
+          },
+          {
+            "name": "u62.bin",
+            "size": 2097152,
+            "crc32": "3ad0c357",
+            "role": "ymf-samples-1"
+          },
+          {
+            "name": "u1.bin",
+            "size": 262144,
+            "crc32": "681d7d55",
+            "role": "sprite-lut"
+          },
+          {
+            "name": "4.u59",
+            "size": 4096,
+            "crc32": "e563b054",
+            "role": "pic16c57",
+            "optional": true
+          }
+        ]
+      },
+      "tengai": {
+        "title": "Tengai (World)",
+        "main_lanes": [
+          "5-u40.bin",
+          "4-u41.bin"
+        ],
+        "files": [
+          {
+            "name": "5-u40.bin",
+            "size": 524288,
+            "crc32": "90088195",
+            "role": "maincpu-lane10"
+          },
+          {
+            "name": "4-u41.bin",
+            "size": 524288,
+            "crc32": "0d53196c",
+            "role": "maincpu-lane32"
+          },
+          {
+            "name": "1-u63.bin",
+            "size": 131072,
+            "crc32": "2025e387",
+            "role": "audiocpu"
+          },
+          {
+            "name": "u20.bin",
+            "size": 2097152,
+            "crc32": "ed42ef73",
+            "role": "sprites-0"
+          },
+          {
+            "name": "u22.bin",
+            "size": 2097152,
+            "crc32": "8d21caee",
+            "role": "sprites-1"
+          },
+          {
+            "name": "u21.bin",
+            "size": 2097152,
+            "crc32": "efe34eed",
+            "role": "sprites-2"
+          },
+          {
+            "name": "u34.bin",
+            "size": 4194304,
+            "crc32": "2a2e2eeb",
+            "role": "tiles"
+          },
+          {
+            "name": "u61.bin",
+            "size": 2097152,
+            "crc32": "a63633c5",
+            "role": "ymf-samples-0"
+          },
+          {
+            "name": "u62.bin",
+            "size": 2097152,
+            "crc32": "3ad0c357",
+            "role": "ymf-samples-1"
+          },
+          {
+            "name": "u1.bin",
+            "size": 262144,
+            "crc32": "681d7d55",
+            "role": "sprite-lut"
+          },
+          {
+            "name": "4.u59",
+            "size": 4096,
+            "crc32": "e563b054",
+            "role": "pic16c57",
+            "optional": true
+          }
+        ]
+      }
+    }
+  }
+}
