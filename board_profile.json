@@ -9,6 +9,13 @@
   },
   "runtime": {
     "address_mask": 16777215,
+    "rom_bindings": {
+      "main_program": "maincpu",
+      "audio_program": "audiocpu",
+      "tile_graphics": "tiles",
+      "sprite_graphics": "sprites",
+      "sprite_lut": "sprite-lut"
+    },
     "main_cpu": {
       "architecture": "m68ec020",
       "execution_backend": "static_recompiler",
@@ -667,6 +674,12 @@
           "port": "system",
           "bit": 5,
           "active": "low"
+        },
+        {
+          "id": "test_dip",
+          "port": "dip",
+          "bit": 7,
+          "active": "low"
         }
       ]
     },
@@ -1157,38 +1170,38 @@
         "channels": 1,
         "buffer_frames": 16384
       },
-    "cpu": {
-      "architecture": "z80",
-      "execution_backend": "static_recompiler",
-      "clock_hz": 8000000,
+      "cpu": {
+        "architecture": "z80",
+        "execution_backend": "static_recompiler",
+        "clock_hz": 8000000,
         "io_address_mask": 255,
-      "reset_bank": 0,
-      "interleave_slices": 256,
-      "reset": {
-        "pc": 0,
-        "sp": 65535,
-        "af": 65535,
-        "bc": 0,
-        "de": 0,
-        "hl": 0,
-        "ix": 0,
-        "iy": 0,
-        "i": 0,
-        "r": 0,
-        "interrupt_mode": 0
-      },
-      "interrupts": {
-        "nmi_vector": 102,
-        "mode1_vector": 56,
-        "interrupt_data": 255,
-        "halt_cycles": 4,
-        "nmi_cycles": 11,
-        "mode0_cycles": 11,
-        "mode0_opcode_cycles": 11,
-        "mode1_cycles": 13,
-        "mode2_cycles": 19
-      },
-      "memory_regions": [
+        "reset_bank": 0,
+        "interleave_slices": 256,
+        "reset": {
+          "pc": 0,
+          "sp": 65535,
+          "af": 65535,
+          "bc": 0,
+          "de": 0,
+          "hl": 0,
+          "ix": 0,
+          "iy": 0,
+          "i": 0,
+          "r": 0,
+          "interrupt_mode": 0
+        },
+        "interrupts": {
+          "nmi_vector": 102,
+          "mode1_vector": 56,
+          "interrupt_data": 255,
+          "halt_cycles": 4,
+          "nmi_cycles": 11,
+          "mode0_cycles": 11,
+          "mode0_opcode_cycles": 11,
+          "mode1_cycles": 13,
+          "mode2_cycles": 19
+        },
+        "memory_regions": [
           {
             "id": "fixed_rom",
             "operation": "rom",
@@ -1536,7 +1549,8 @@
             "role": "pic16c57",
             "optional": true
           }
-        ]
+        ],
+        "static_program": "tengaij"
       },
       "tengai": {
         "title": "Tengai (World)",
@@ -1612,7 +1626,8 @@
             "role": "pic16c57",
             "optional": true
           }
-        ]
+        ],
+        "static_program": null
       }
     }
   }

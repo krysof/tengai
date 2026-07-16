@@ -75,7 +75,8 @@
           "role": "pic16c57",
           "optional": true
         }
-      ]
+      ],
+      "static_program": "tengaij"
     },
     "tengai": {
       "title": "Tengai (World)",
@@ -151,7 +152,8 @@
           "role": "pic16c57",
           "optional": true
         }
-      ]
+      ],
+      "static_program": null
     }
   }
 }

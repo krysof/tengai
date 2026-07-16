@@ -1,7 +1,21 @@
 {
   "schema": "tengao.controls/v1",
   "display": {
-    "help_zh": "实时输入：1P 投币/开始为 5/1，方向键移动，Z/X/C 操作；2P 为 6/2、WASD、F/G/H。也支持标准双手柄。"
+    "help_zh": "实时输入：1P 投币/开始为 5/1，方向键移动，Z/X/C 操作；2P 为 6/2、WASD、F/G/H；F2 重启进入测试模式，F3 为服务投币。也支持标准双手柄。"
+  },
+  "atlas": {
+    "sources": [
+      {
+        "id": "tiles",
+        "binding": "tile_graphics",
+        "label_zh": "背景图块"
+      },
+      {
+        "id": "sprites",
+        "binding": "sprite_graphics",
+        "label_zh": "精灵图块"
+      }
+    ]
   },
   "archive": {
     "max_zip_bytes": 67108864,
@@ -93,7 +107,8 @@
     },
     {
       "code": "F2",
-      "input": "test"
+      "input": "test_dip",
+      "reset_machine": true
     },
     {
       "code": "F3",
