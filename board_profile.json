@@ -18,7 +18,7 @@
     },
     "main_cpu": {
       "architecture": "m68ec020",
-      "execution_backend": "static_recompiler",
+      "execution_backend": "native_cpp_aot",
       "reset_cycles": 4,
       "interrupts": {
         "autovector_base": 24,
@@ -1172,7 +1172,7 @@
       },
       "cpu": {
         "architecture": "z80",
-        "execution_backend": "static_recompiler",
+        "execution_backend": "native_cpp_aot",
         "clock_hz": 8000000,
         "io_address_mask": 255,
         "reset_bank": 0,

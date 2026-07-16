@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="dark" />
     <meta
       name="description"
-      content="Tengai 数据驱动的独立 WASM 板级运行时与静态重编译实验室"
+      content="Tengai 原生 C++ AOT/WASM 移植与 BMP/BIN 资源运行时"
     />
     <title>Tengai // WASM Reverse Lab</title>
     <link rel="stylesheet" href="./styles.min.css" />
@@ -19,8 +19,8 @@
           <p class="eyebrow">PORTABLE REVERSE ENGINEERING / STATIC NATIVE</p>
           <h1><span>TENGAI</span> WASM REVERSE LAB</h1>
           <p class="lede">
-            在浏览器本地校验 ROM，并由自研 WebAssembly 板级运行时执行
-            静态重编译后的 68EC020 与 Z80 程序、MCU、视频和 YMF278B 音频。游戏逻辑和硬件参数来自生成表；生产版不链接 CPU/整机模拟器。
+            在浏览器本地校验预提取的 BMP/BIN 资源，并直接执行由
+            68EC020 与 Z80 程序生成的 C++/WebAssembly 函数。硬件参数来自外部数据；生产版不解释 CPU 指令，也不链接整机模拟器。
           </p>
         </div>
         <div id="core-status" class="core-status loading" data-state="loading">
@@ -35,8 +35,8 @@
       <section class="panel intake-panel" aria-labelledby="rom-heading">
         <div class="panel-heading">
           <div>
-            <p class="step">01 / ROM INTAKE</p>
-            <h2 id="rom-heading">加载用户自备 ROM</h2>
+            <p class="step">01 / ASSET INTAKE</p>
+            <h2 id="rom-heading">加载 BMP/BIN 资源包</h2>
           </div>
           <p class="privacy-note">LOCAL ONLY · NO UPLOAD</p>
         </div>
@@ -44,15 +44,15 @@
         <label id="drop-zone" class="drop-zone" for="rom-file" tabindex="0">
           <input id="rom-file" type="file" accept=".zip,application/zip" />
           <span class="drop-mark" aria-hidden="true">↧</span>
-          <span class="drop-title">拖入 ROM ZIP</span>
-          <span class="drop-copy">也可以点击选择文件 · 最大 64 MiB</span>
+          <span class="drop-title">拖入 *.assets.zip</span>
+          <span class="drop-copy">也兼容用户自备原 ROM ZIP · 最大 64 MiB</span>
         </label>
         <div id="load-error" class="error-message" role="alert" hidden></div>
       </section>
 
       <section id="summary" class="summary-grid" aria-live="polite" hidden>
         <article class="metric panel">
-          <small>ROM SET</small>
+          <small>GAME SET</small>
           <strong id="metric-set">—</strong>
           <span id="metric-title">—</span>
         </article>
@@ -72,7 +72,7 @@
           <span>big-endian vector @ 0x000004</span>
         </article>
         <article class="metric panel wide">
-          <small>MERGED MAIN PROGRAM</small>
+          <small>READ-ONLY DATA IMAGE</small>
           <strong id="metric-main-crc" class="mono">—</strong>
           <span id="metric-main-size">—</span>
         </article>
@@ -82,7 +82,7 @@
         <div class="panel-heading">
           <div>
             <p class="step">02 / INTEGRITY</p>
-            <h2 id="audit-heading">ROM 清单</h2>
+            <h2 id="audit-heading">资源清单</h2>
           </div>
           <div id="audit-badge" class="badge">等待校验</div>
         </div>
@@ -114,7 +114,7 @@
           <canvas id="native-frame"></canvas>
         </div>
         <p class="diagnostic-note">
-          该画面与声音由项目自己的板级运行时、Z80/YMF278B、调色板、双背景层和精灵渲染器生成；未调用外部整机模拟器。
+          该画面与声音由直接编译的 M68K/Z80 游戏函数、可移植板级运行时、YMF278B 设备模型、调色板、双背景层和精灵渲染器生成。
         </p>
         <p id="native-controls-help" class="diagnostic-note"></p>
       </section>
@@ -146,7 +146,7 @@
           </div>
         </div>
         <p class="diagnostic-note">
-          当前颜色是诊断调色板，仅用于确认 ROM 排列和 4bpp nibble 顺序；不是游戏实际调色板。
+          图块来自标准 4-bpp BMP 图集；当前颜色仅用于显示 pen 编号，不是游戏运行时调色板。
         </p>
       </section>
 
@@ -163,7 +163,7 @@
 
       <footer>
         <span id="build-version">core: pending</span>
-        <span>ROM-free research build · C++17 / WebAssembly</span>
+        <span>asset-free public shell · direct C++ AOT / WebAssembly</span>
       </footer>
     </main>
     <script type="module" src="./app.min.js"></script>

@@ -1,8 +1,9 @@
-# TENGAO STATIC NATIVE
+# TENGAO DIRECT C++ NATIVE
 
-GitHub Pages production artifact for the data-driven Tengai port.
+GitHub Pages production artifact for the portable Tengai port.
 
-- Compiled WebAssembly contains predecoded 68EC020/Z80 program tables.
+- 68EC020/Z80 addresses dispatch directly to generated C++ functions.
+- Graphics load as standard indexed BMP atlases; other assets are BIN files.
 - Reference CPU and whole-system emulator cores are not linked.
-- Application source and static-program JSON are not published here.
-- No commercial ROM is included in this public package.
+- C/C++ source and lifting JSON are not published here.
+- No commercial ROM or extracted game asset is included.
