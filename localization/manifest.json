@@ -7,16 +7,18 @@
       "source_set": "tengaij",
       "video_patch": {
         "file": "localization/zh-Hans.video-patch.bin",
-        "format": "tengai.video-patch/v2",
-        "size": 51224,
-        "crc32": "814db4d8",
-        "sha256": "b05184129050a9aa039e712e0e795a35a18fe5f2334d8eabfb3b03772fcec250",
+        "format": "tengai.video-patch/v3",
+        "size": 3745984,
+        "crc32": "523c207b",
+        "sha256": "deb98b790886fd7aa3cf867e5b73070fbb9016f1702043d87c205d455ea5fa7f",
         "tile_entries": 114,
         "sprite_entries": 165,
-        "overlay_entries": 1
+        "overlay_entries": 1,
+        "dialogue_entries": 533
       },
       "coverage": {
-        "translated_entries": 31,
+        "translated_entries": 564,
+        "dialogue_entries": 533,
         "source_strings": [
           "戦国ブレード",
           "CREDIT",

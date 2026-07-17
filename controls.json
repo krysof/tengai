@@ -1,6 +1,11 @@
 {
   "schema": "tengai.controls/v2",
   "touch": {
+    "joystick": {
+      "deadzone": 0.18,
+      "diagonal_ratio": 0.42,
+      "maximum_travel": 0.54
+    },
     "dpad": {
       "up": "p1_up",
       "down": "p1_down",

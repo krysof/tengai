@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <meta name="tengai-builtin-package" content="./assets/builtin.assets.zip" />
     <meta name="color-scheme" content="dark" />
     <meta name="description" content="Tengai WebAssembly 游戏移植版" />
@@ -21,12 +21,12 @@
 
       <section id="playfield" class="playfield" aria-label="Tengai game and virtual controller">
         <div class="pad-side pad-left">
-          <div id="touch-dpad" class="dpad" aria-label="方向键">
-            <span class="dpad-key dpad-up" data-direction="up">▲</span>
-            <span class="dpad-key dpad-left" data-direction="left">◀</span>
-            <span class="dpad-center"></span>
-            <span class="dpad-key dpad-right" data-direction="right">▶</span>
-            <span class="dpad-key dpad-down" data-direction="down">▼</span>
+          <div id="touch-dpad" class="dpad joystick" role="group" aria-label="方向摇杆">
+            <span class="joystick-direction joystick-up" data-direction="up" aria-hidden="true">▲</span>
+            <span class="joystick-direction joystick-left" data-direction="left" aria-hidden="true">◀</span>
+            <span class="joystick-direction joystick-right" data-direction="right" aria-hidden="true">▶</span>
+            <span class="joystick-direction joystick-down" data-direction="down" aria-hidden="true">▼</span>
+            <span id="joystick-knob" class="joystick-knob" aria-hidden="true"><i></i></span>
           </div>
         </div>
 
