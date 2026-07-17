@@ -554,6 +554,138 @@
         "flip_screen_dip_mask": 1,
         "flip_screen_dip_value": 0
       },
+      "dip_fields": [
+        {
+          "id": "flip_screen",
+          "label": "Flip Screen",
+          "location": "SW2:1",
+          "mask": 1,
+          "default": 1,
+          "options": [
+            {"id": "off", "label": "Off", "value": 1},
+            {"id": "on", "label": "On", "value": 0}
+          ]
+        },
+        {
+          "id": "demo_sounds",
+          "label": "Demo Sounds",
+          "location": "SW2:2",
+          "mask": 2,
+          "default": 0,
+          "options": [
+            {"id": "on", "label": "On", "value": 0},
+            {"id": "off", "label": "Off", "value": 2}
+          ]
+        },
+        {
+          "id": "difficulty",
+          "label": "Difficulty",
+          "location": "SW2:3,4",
+          "mask": 12,
+          "default": 12,
+          "options": [
+            {"id": "easy", "label": "Easy", "value": 8},
+            {"id": "normal", "label": "Normal", "value": 12},
+            {"id": "hard", "label": "Hard", "value": 4},
+            {"id": "hardest", "label": "Hardest", "value": 0}
+          ]
+        },
+        {
+          "id": "lives",
+          "label": "Lives",
+          "location": "SW2:5,6",
+          "mask": 48,
+          "default": 48,
+          "options": [
+            {"id": "one", "label": "1", "value": 32},
+            {"id": "two", "label": "2", "value": 16},
+            {"id": "three", "label": "3", "value": 48},
+            {"id": "four", "label": "4", "value": 0}
+          ]
+        },
+        {
+          "id": "bonus_life",
+          "label": "Bonus Life",
+          "location": "SW2:7",
+          "mask": 64,
+          "default": 64,
+          "options": [
+            {"id": "600k", "label": "600K", "value": 64},
+            {"id": "800k", "label": "800K", "value": 0}
+          ]
+        },
+        {
+          "id": "service_mode",
+          "label": "Service Mode",
+          "location": "SW2:8",
+          "mask": 128,
+          "default": 128,
+          "options": [
+            {"id": "off", "label": "Off", "value": 128},
+            {"id": "on", "label": "On", "value": 0}
+          ]
+        },
+        {
+          "id": "coin_slot",
+          "label": "Coin Slot",
+          "location": "SW1:1",
+          "mask": 256,
+          "default": 256,
+          "options": [
+            {"id": "shared", "label": "Shared", "value": 256},
+            {"id": "individual", "label": "Individual", "value": 0}
+          ]
+        },
+        {
+          "id": "coin_a",
+          "label": "Coin A",
+          "location": "SW1:2,3,4",
+          "mask": 3584,
+          "default": 3584,
+          "options": [
+            {"id": "3c_1c", "label": "3 Coins / 1 Credit", "value": 2560},
+            {"id": "2c_1c", "label": "2 Coins / 1 Credit", "value": 3072},
+            {"id": "1c_1c", "label": "1 Coin / 1 Credit", "value": 3584},
+            {"id": "1c_2c", "label": "1 Coin / 2 Credits", "value": 2048},
+            {"id": "1c_3c", "label": "1 Coin / 3 Credits", "value": 1536},
+            {"id": "1c_4c", "label": "1 Coin / 4 Credits", "value": 1024},
+            {"id": "1c_5c", "label": "1 Coin / 5 Credits", "value": 512},
+            {"id": "1c_6c", "label": "1 Coin / 6 Credits", "value": 0}
+          ]
+        },
+        {
+          "id": "coin_b",
+          "label": "Coin B",
+          "location": "SW1:5,6,7",
+          "mask": 28672,
+          "default": 28672,
+          "options": [
+            {"id": "3c_1c", "label": "3 Coins / 1 Credit", "value": 20480},
+            {"id": "2c_1c", "label": "2 Coins / 1 Credit", "value": 24576},
+            {"id": "1c_1c", "label": "1 Coin / 1 Credit", "value": 28672},
+            {"id": "1c_2c", "label": "1 Coin / 2 Credits", "value": 16384},
+            {"id": "1c_3c", "label": "1 Coin / 3 Credits", "value": 12288},
+            {"id": "1c_4c", "label": "1 Coin / 4 Credits", "value": 8192},
+            {"id": "1c_5c", "label": "1 Coin / 5 Credits", "value": 4096},
+            {"id": "1c_6c", "label": "1 Coin / 6 Credits", "value": 0}
+          ]
+        },
+        {
+          "id": "two_credit_start",
+          "label": "2 Credits Start / 1 Credit Continue",
+          "location": "SW1:8",
+          "mask": 32768,
+          "default": 32768,
+          "options": [
+            {"id": "off", "label": "Off", "value": 32768},
+            {"id": "on", "label": "On", "value": 0}
+          ]
+        }
+      ],
+      "region_options": [
+        {"id": "japan", "label": "Japan", "value": 15},
+        {"id": "world", "label": "World", "value": 14}
+      ],
       "inputs": [
         {
           "id": "p1_start",
