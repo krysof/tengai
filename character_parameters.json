@@ -1,0 +1,155 @@
+{
+  "schema": "tengai.character-parameters/v1",
+  "board_id": "psikyo-tengai",
+  "rom_set": "tengaij",
+  "fixed_point": {
+    "format": "signed-16.16",
+    "fraction_bits": 16
+  },
+  "characters": [
+    {
+      "id": "ayin",
+      "game_id": 0,
+      "label": "Ayin",
+      "movement_profile_id": 0
+    },
+    {
+      "id": "tengai",
+      "game_id": 1,
+      "label": "Tengai",
+      "movement_profile_id": 1
+    },
+    {
+      "id": "hagane",
+      "game_id": 2,
+      "label": "Hagane",
+      "movement_profile_id": 2
+    },
+    {
+      "id": "sho",
+      "game_id": 3,
+      "label": "Sho",
+      "movement_profile_id": 3
+    },
+    {
+      "id": "junis",
+      "game_id": 4,
+      "label": "Junis",
+      "movement_profile_id": 4
+    },
+    {
+      "id": "miko",
+      "game_id": 5,
+      "label": "Miko",
+      "movement_profile_id": 1
+    }
+  ],
+  "movement_profiles": [
+    {
+      "id": 0,
+      "characters": [
+        "ayin"
+      ],
+      "cardinal_speed": {
+        "x": 139264,
+        "y": 139264
+      },
+      "diagonal_speed": {
+        "x": 106496,
+        "y": 106496
+      },
+      "collision": {
+        "min_x": -4,
+        "min_y": -3,
+        "max_x": 3,
+        "max_y": 3
+      }
+    },
+    {
+      "id": 1,
+      "characters": [
+        "tengai",
+        "miko"
+      ],
+      "cardinal_speed": {
+        "x": 131072,
+        "y": 131072
+      },
+      "diagonal_speed": {
+        "x": 98304,
+        "y": 98304
+      },
+      "collision": {
+        "min_x": -5,
+        "min_y": -4,
+        "max_x": 4,
+        "max_y": 4
+      }
+    },
+    {
+      "id": 2,
+      "characters": [
+        "hagane"
+      ],
+      "cardinal_speed": {
+        "x": 139264,
+        "y": 139264
+      },
+      "diagonal_speed": {
+        "x": 106496,
+        "y": 106496
+      },
+      "collision": {
+        "min_x": -4,
+        "min_y": -5,
+        "max_x": 4,
+        "max_y": 4
+      }
+    },
+    {
+      "id": 3,
+      "characters": [
+        "sho"
+      ],
+      "cardinal_speed": {
+        "x": 155648,
+        "y": 155648
+      },
+      "diagonal_speed": {
+        "x": 114688,
+        "y": 114688
+      },
+      "collision": {
+        "min_x": -4,
+        "min_y": -3,
+        "max_x": 4,
+        "max_y": 3
+      }
+    },
+    {
+      "id": 4,
+      "characters": [
+        "junis"
+      ],
+      "cardinal_speed": {
+        "x": 147456,
+        "y": 147456
+      },
+      "diagonal_speed": {
+        "x": 106496,
+        "y": 106496
+      },
+      "collision": {
+        "min_x": -3,
+        "min_y": -3,
+        "max_x": 3,
+        "max_y": 2
+      }
+    }
+  ],
+  "evidence": {
+    "state_layout": "boards/tengai.board.json#runtime.state_layout.structures/player",
+    "samples": "tests/data/tengaij.player-state.evidence.json",
+    "method": "reference/direct-C++ frame trace across all six characters and simultaneous directional input"
+  }
+}
