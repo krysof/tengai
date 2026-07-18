@@ -6,7 +6,7 @@ GitHub Pages production artifact for the portable Tengai port.
 - Fixed-point trigonometry loads its typed table from math-data.bin.
 - Source colors load from semantic palette-data.bin records.
 - Sprite compositions load from semantic animation-data.bin frames.
-- Collision bounds load from semantic collision-data.bin groups.
+- Collision bounds and object damage profiles load from semantic collision-data.bin records.
 - Object bytecode tokens, typed parameters and dispatch metadata load from object-data.bin.
 - Layer maps and upload schedules load from semantic tilemap-data.bin records.
 - Glyph advances and diagnostic strings load from semantic text-data.bin resources.
