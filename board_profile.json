@@ -887,6 +887,90 @@
               "evidence": "eight-slot allocation writes slot indices 0 through 3 for each owning player"
             }
           ]
+        },
+        {
+          "id": "sprite_runtime",
+          "label": "Shared runtime sprite object",
+          "region": "work_ram",
+          "offset": 2592,
+          "stride": 40,
+          "count": 256,
+          "fields": [
+            {
+              "id": "render_callback",
+              "label": "Render callback ROM address",
+              "offset": 0,
+              "width": 4,
+              "type": "rom_address",
+              "evidence": "pool allocation installs 0x1336 and the render dispatcher invokes the address as a callback"
+            },
+            {
+              "id": "zoom_axis_0",
+              "label": "Render zoom axis 0",
+              "offset": 16,
+              "width": 1,
+              "type": "u8",
+              "evidence": "pool allocation clears the byte and the scaled renderer consumes it"
+            },
+            {
+              "id": "zoom_axis_1",
+              "label": "Render zoom axis 1",
+              "offset": 17,
+              "width": 1,
+              "type": "u8",
+              "evidence": "pool allocation clears the byte and the scaled renderer consumes it"
+            },
+            {
+              "id": "render_flags",
+              "label": "Render flags",
+              "offset": 18,
+              "width": 2,
+              "type": "u16",
+              "evidence": "pool initialization and release write 0x80; allocation alternates bit 0x10"
+            },
+            {
+              "id": "render_band",
+              "label": "Render grouping byte",
+              "offset": 21,
+              "width": 1,
+              "type": "u8",
+              "evidence": "pool allocation clears the byte; render ordering and player-object registration read/write it"
+            },
+            {
+              "id": "runtime_state",
+              "label": "Runtime object state",
+              "offset": 22,
+              "width": 1,
+              "type": "u8",
+              "evidence": "pool allocation writes state 1, release writes 0, and typed callbacks advance the byte through observed states 2, 4, 6, 7, 8, 9 and 10"
+            },
+            {
+              "id": "render_aux_state",
+              "label": "Render auxiliary state",
+              "offset": 24,
+              "width": 2,
+              "type": "u16",
+              "evidence": "pool allocation clears the word before the runtime callback is assigned"
+            }
+          ]
+        },
+        {
+          "id": "sprite_free_slot",
+          "label": "Runtime sprite free-list slot",
+          "region": "work_ram",
+          "offset": 12832,
+          "stride": 2,
+          "count": 256,
+          "fields": [
+            {
+              "id": "runtime_index",
+              "label": "Free runtime sprite index",
+              "offset": 0,
+              "width": 2,
+              "type": "u16",
+              "evidence": "pool initialization writes identity sequence 0..255; acquire pops and release pushes indices"
+            }
+          ]
         }
       ],
       "globals": [
@@ -916,6 +1000,42 @@
           "width": 1,
           "type": "u8",
           "evidence": "character-select replay exposes Ayin only when asserted"
+        },
+        {
+          "id": "sprite_free_top",
+          "label": "Runtime sprite free-list top",
+          "region": "work_ram",
+          "offset": 13344,
+          "width": 2,
+          "type": "u16",
+          "evidence": "initialized to 255, decremented on allocation and incremented on release"
+        },
+        {
+          "id": "sprite_pair_toggle",
+          "label": "Runtime sprite allocation pair toggle",
+          "region": "work_ram",
+          "offset": 13358,
+          "width": 2,
+          "type": "u16",
+          "evidence": "allocation alternates zero/one and mirrors bit 0x10 in render flags"
+        },
+        {
+          "id": "sprite_pool_ready",
+          "label": "Runtime sprite pool ready flag",
+          "region": "work_ram",
+          "offset": 13626,
+          "width": 2,
+          "type": "u16",
+          "evidence": "pool initialization writes one after all 256 free slots are seeded"
+        },
+        {
+          "id": "sprite_list_terminator",
+          "label": "Hardware sprite-list terminator",
+          "region": "sprite_ram",
+          "offset": 6144,
+          "width": 2,
+          "type": "u16",
+          "evidence": "pool initialization writes 0xffff before rendering begins"
         }
       ]
     },
