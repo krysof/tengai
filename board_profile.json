@@ -751,6 +751,38 @@
               "evidence": "object construction writes 20 before the first active update"
             },
             {
+              "id": "trajectory_duration",
+              "label": "Trajectory duration parameter",
+              "offset": 8,
+              "width": 2,
+              "type": "u16",
+              "evidence": "object construction copies character-table values 4 or 6 and the trajectory update subtracts this value from the global phase"
+            },
+            {
+              "id": "trajectory_step",
+              "label": "Trajectory step parameter",
+              "offset": 10,
+              "width": 2,
+              "type": "u16",
+              "evidence": "object construction copies character-table values 2 or 3 from the validated parameter record"
+            },
+            {
+              "id": "spawn_base_y",
+              "label": "Spawn base Y",
+              "offset": 12,
+              "width": 2,
+              "type": "s16",
+              "evidence": "object construction copies signed character-table values -26 or -21 before initial trajectory projection"
+            },
+            {
+              "id": "spawn_base_x",
+              "label": "Spawn base X",
+              "offset": 14,
+              "width": 2,
+              "type": "s16",
+              "evidence": "object construction copies signed character-table values -8 or -9 before initial trajectory projection"
+            },
+            {
               "id": "vector_base_y",
               "label": "Trajectory base Y",
               "offset": 16,
@@ -837,6 +869,22 @@
               "width": 4,
               "type": "rom_address",
               "evidence": "descriptor loaders and refresh block select verified ROM frame tables in the 0x06b2f0-0x06b644 range"
+            },
+            {
+              "id": "owner_player",
+              "label": "Owning player index",
+              "offset": 48,
+              "width": 2,
+              "type": "u16",
+              "evidence": "eight-slot allocation writes player indices 0 and 1 to four consecutive slots each"
+            },
+            {
+              "id": "owner_slot",
+              "label": "Per-player slot index",
+              "offset": 50,
+              "width": 2,
+              "type": "u16",
+              "evidence": "eight-slot allocation writes slot indices 0 through 3 for each owning player"
             }
           ]
         }
