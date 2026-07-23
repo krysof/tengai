@@ -60,7 +60,7 @@
     "max_expanded_bytes": 25165824
   },
   "runtime": {
-    "start_mode": "campaign",
+    "start_mode": "frontend",
     "initial_scene_id": 5,
     "default_character_id": 0,
     "campaign_seed": 1413828167,

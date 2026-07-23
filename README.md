@@ -11,6 +11,7 @@ GitHub Pages artifact for the portable high-level Tengai port.
 - The C-button auto-fire assist renews the same data-authored normal-shot burst without charging or character-specific hardcoding.
 - Player lives, bomb inventory, hit/death/respawn rules, six character-bomb roots and four ranked charged-attack roots per character load from semantic player-data.bin records.
 - Scene selection, regional/world presentation and streamed-layer descriptors load from semantic presentation-data.bin records.
+- Coin accounting, title/start flow, the selectable roster, character confirmation, continue countdowns and ending return load from frontend-data.bin and run in the high-level C++ front-end controller.
 - Address-free IMA-ADPCM effects/music, loop points and stable semantic cue maps load from audio-clips.bin into a pure high-level C++ PCM mixer.
 - Collision bounds, damage profiles and Q10 scaling curves load from semantic collision-data.bin records.
 - The complete 15,615-command object-script catalog loads from object-actions.bin as address-free high-level actions with zero unclassified commands.

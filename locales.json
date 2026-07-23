@@ -31,7 +31,17 @@
         "clear": "消去",
         "controls_help": "1P：5/1 コイン・スタート、方向キー、Z/X/C。標準ゲームパッドにも対応。",
         "language_aria": "言語",
-        "game_aria": "Tengai ゲーム画面と仮想コントローラー"
+        "game_aria": "Tengai ゲーム画面と仮想コントローラー",
+        "flow_insert_coin": "コインを入れてください",
+        "flow_press_start": "START を押してください",
+        "flow_select_character": "キャラクター選択",
+        "flow_confirm": "A または START で決定",
+        "flow_credits": "クレジット",
+        "flow_continue": "コンティニュー",
+        "flow_continue_hint": "コインを入れて A / START",
+        "flow_ending": "ALL CLEAR",
+        "flow_complete": "GAME OVER",
+        "flow_return_title": "A または START でタイトルへ"
       },
       "controls": {
         "coin": "コイン",
@@ -73,7 +83,17 @@
         "clear": "CLEAR",
         "controls_help": "P1: 5/1 coin/start, arrow keys to move, Z/X/C actions. Standard gamepads are supported.",
         "language_aria": "Language",
-        "game_aria": "Tengai game and virtual controller"
+        "game_aria": "Tengai game and virtual controller",
+        "flow_insert_coin": "INSERT COIN",
+        "flow_press_start": "PRESS START",
+        "flow_select_character": "SELECT CHARACTER",
+        "flow_confirm": "A OR START TO CONFIRM",
+        "flow_credits": "CREDITS",
+        "flow_continue": "CONTINUE",
+        "flow_continue_hint": "INSERT COIN · A / START",
+        "flow_ending": "ALL CLEAR",
+        "flow_complete": "GAME OVER",
+        "flow_return_title": "A OR START TO TITLE"
       },
       "controls": {
         "coin": "COIN",
@@ -115,7 +135,17 @@
         "clear": "清除",
         "controls_help": "1P：5/1 投幣／開始，方向鍵移動，Z/X/C 操作；亦支援標準手把。",
         "language_aria": "語言",
-        "game_aria": "Tengai 遊戲與虛擬手把"
+        "game_aria": "Tengai 遊戲與虛擬手把",
+        "flow_insert_coin": "請投幣",
+        "flow_press_start": "按開始",
+        "flow_select_character": "選擇角色",
+        "flow_confirm": "按 A 或開始確認",
+        "flow_credits": "幣數",
+        "flow_continue": "是否續關",
+        "flow_continue_hint": "投幣後按 A／開始",
+        "flow_ending": "全部通關",
+        "flow_complete": "遊戲結束",
+        "flow_return_title": "按 A／開始返回標題"
       },
       "controls": {
         "coin": "投幣",
@@ -157,7 +187,17 @@
         "clear": "清除",
         "controls_help": "1P：5/1 入幣／開始，方向鍵移動，Z/X/C 操作；亦支援標準手掣。",
         "language_aria": "語言",
-        "game_aria": "Tengai 遊戲同虛擬手掣"
+        "game_aria": "Tengai 遊戲同虛擬手掣",
+        "flow_insert_coin": "請入幣",
+        "flow_press_start": "撳開始",
+        "flow_select_character": "揀角色",
+        "flow_confirm": "撳 A 或開始確認",
+        "flow_credits": "幣數",
+        "flow_continue": "繼唔繼續",
+        "flow_continue_hint": "入幣後撳 A／開始",
+        "flow_ending": "全部爆機",
+        "flow_complete": "遊戲結束",
+        "flow_return_title": "撳 A／開始返標題"
       },
       "controls": {
         "coin": "入幣",
@@ -199,7 +239,17 @@
         "clear": "清空",
         "controls_help": "1P：5/1 投币／开始，方向键移动，Z/X/C 操作；也支持标准手柄。",
         "language_aria": "语言",
-        "game_aria": "Tengai 游戏与虚拟手柄"
+        "game_aria": "Tengai 游戏与虚拟手柄",
+        "flow_insert_coin": "请投币",
+        "flow_press_start": "按开始",
+        "flow_select_character": "选择角色",
+        "flow_confirm": "按 A 或开始确认",
+        "flow_credits": "币数",
+        "flow_continue": "是否续关",
+        "flow_continue_hint": "投币后按 A／开始",
+        "flow_ending": "全部通关",
+        "flow_complete": "游戏结束",
+        "flow_return_title": "按 A／开始返回标题"
       },
       "controls": {
         "coin": "投币",

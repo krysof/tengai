@@ -53,6 +53,14 @@
           <section id="native-video-panel" class="screen-panel" hidden aria-label="游戏画面">
             <div class="canvas-frame native-frame-shell">
               <canvas id="native-frame"></canvas>
+              <div id="game-flow-panel" class="game-flow-panel" hidden aria-live="polite">
+                <div class="game-flow-content">
+                  <h2 id="game-flow-title" class="game-flow-title">TENGAI</h2>
+                  <p id="game-flow-message" class="game-flow-message"></p>
+                  <div id="game-flow-roster" class="game-flow-roster"></div>
+                  <p id="game-flow-footer" class="game-flow-footer"></p>
+                </div>
+              </div>
             </div>
             <div id="native-frame-stats" class="frame-stats">等待执行</div>
           </section>
@@ -138,6 +146,6 @@
         </div>
       </details>
     </main>
-    <script type="module" src="./app.min.js?v=20260723-scene-scroll-v11"></script>
+    <script type="module" src="./app.min.js?v=20260723-frontend-v1"></script>
   </body>
 </html>
