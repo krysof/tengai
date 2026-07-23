@@ -12,9 +12,11 @@ GitHub Pages artifact for the portable high-level Tengai port.
 - Player lives, bomb inventory, hit/death/respawn rules, six character-bomb roots and four ranked charged-attack roots per character load from semantic player-data.bin records.
 - Scene selection, regional/world presentation and streamed-layer descriptors load from semantic presentation-data.bin records.
 - Coin accounting, title/start flow, the selectable roster, character confirmation, continue countdowns and ending return load from frontend-data.bin and run in the high-level C++ front-end controller.
+- Six character route profiles, twelve ending dialogue sequences, 21 party profiles, three narrative presentations, 169 narrative scenes and seven typed post-stage narrative boundaries load from address-free story-data.bin.
+- First-round campaign steps 0-5 enter their character/party narrative and step 6 enters the special transition before the high-level state machine advances; confirmation and automatic timing are data-authored.
 - Address-free IMA-ADPCM effects/music, loop points and stable semantic cue maps load from audio-clips.bin into a pure high-level C++ PCM mixer.
 - Collision bounds, damage profiles and Q10 scaling curves load from semantic collision-data.bin records.
-- The complete 15,615-command object-script catalog loads from object-actions.bin as address-free high-level actions with zero unclassified commands.
+- The complete 28,439-command object-script catalog loads from object-actions.bin as address-free high-level actions with zero unclassified commands.
 - Scene entry/update bindings and scene transitions load from address-free scene-flow-data.bin records.
 - Stage scanline programs and raster segments load from semantic stage-scripts.bin records.
 - Scheduled and streamed layer maps and their upload schedules load from semantic tilemap-data.bin records.
