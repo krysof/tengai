@@ -8,6 +8,7 @@ GitHub Pages artifact for the portable high-level Tengai port.
 - Source colors, frame-indexed cycles, diagnostic palettes, their stable-ID map, and the complete 161x8 stable-ID routing bank load from semantic palette-data.bin records.
 - Sprite compositions, stable frame references, priority/orientation flags, the complete character-select roster/frame table, and typed renderer profile/scale/template/descriptor data load from semantic animation-data.bin records.
 - Player movement, collision, shot formation and projectile animation profiles load from semantic projectile-data.bin records.
+- The C-button auto-fire assist renews the same data-authored normal-shot burst without charging or character-specific hardcoding.
 - Player lives, bomb inventory, hit/death/respawn rules, six character-bomb roots and four ranked charged-attack roots per character load from semantic player-data.bin records.
 - Scene selection, regional/world presentation and streamed-layer descriptors load from semantic presentation-data.bin records.
 - Collision bounds, damage profiles and Q10 scaling curves load from semantic collision-data.bin records.
