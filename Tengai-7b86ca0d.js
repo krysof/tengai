@@ -79,7 +79,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\kryso\AppData\Local\Temp\tmp9xob569y.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmpvgmhegkh.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -97,8 +97,8 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
         // web worker
         PACKAGE_PATH = encodeURIComponent(location.pathname.substring(0, location.pathname.lastIndexOf('/')) + '/');
       }
-      var PACKAGE_NAME = 'Tengai-f878a8f2.data';
-      var REMOTE_PACKAGE_BASE = 'Tengai-f878a8f2.data';
+      var PACKAGE_NAME = 'Tengai-7b86ca0d.data';
+      var REMOTE_PACKAGE_BASE = 'Tengai-7b86ca0d.data';
       var REMOTE_PACKAGE_NAME = Module['locateFile'] ? Module['locateFile'](REMOTE_PACKAGE_BASE, '') : REMOTE_PACKAGE_BASE;
       var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
 
@@ -177,9 +177,9 @@ Module['FS_createPath']("/", "assets", true, true);
             // canOwn this data in the filesystem, it is a slice into the heap that will never change
         Module['FS_createDataFile'](name, null, data, true, true, true);
           }
-          Module['removeRunDependency']('datafile_Tengai-f878a8f2.data');
+          Module['removeRunDependency']('datafile_Tengai-7b86ca0d.data');
       }
-      Module['addRunDependency']('datafile_Tengai-f878a8f2.data');
+      Module['addRunDependency']('datafile_Tengai-7b86ca0d.data');
 
       if (!Module['preloadResults']) Module['preloadResults'] = {};
 
@@ -199,25 +199,25 @@ Module['FS_createPath']("/", "assets", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/assets/character-select-scene-data.bin", "start": 0, "end": 5684}, {"filename": "/assets/character-select-visual-data.bin", "start": 5684, "end": 11722}, {"filename": "/assets/player-control-data.bin", "start": 11722, "end": 11922}, {"filename": "/assets/player-profile-data.bin", "start": 11922, "end": 12160}, {"filename": "/assets/runtime-player-primary-shot-data.bin", "start": 12160, "end": 18374}, {"filename": "/assets/runtime-player-stage-data.bin", "start": 18374, "end": 19328}, {"filename": "/assets/runtime-random-data.bin", "start": 19328, "end": 19378}, {"filename": "/assets/runtime-stage-data.bin", "start": 19378, "end": 19880}, {"filename": "/assets/runtime-stage-order-data.bin", "start": 19880, "end": 19958}, {"filename": "/assets/runtime-stage-palette-data.bin", "start": 19958, "end": 46422}, {"filename": "/assets/runtime-stage-tilemap-data.bin", "start": 46422, "end": 49026}, {"filename": "/assets/runtime-stage1-first-wave-data.bin", "start": 49026, "end": 49840}, {"filename": "/assets/runtime-stage1-second-wave-data.bin", "start": 49840, "end": 50432}, {"filename": "/assets/sprite-lut.bin", "start": 50432, "end": 312632}, {"filename": "/assets/sprites.bmp", "start": 312632, "end": 6604206}, {"filename": "/assets/tiles.bmp", "start": 6604206, "end": 10798628}], "remote_package_size": 10798628});
+    loadPackage({"files": [{"filename": "/assets/character-select-scene-data.bin", "start": 0, "end": 5696}, {"filename": "/assets/character-select-visual-data.bin", "start": 5696, "end": 11734}, {"filename": "/assets/player-control-data.bin", "start": 11734, "end": 11934}, {"filename": "/assets/player-profile-data.bin", "start": 11934, "end": 12172}, {"filename": "/assets/player-status-display-data.bin", "start": 12172, "end": 12324}, {"filename": "/assets/runtime-player-primary-shot-data.bin", "start": 12324, "end": 18538}, {"filename": "/assets/runtime-player-stage-data.bin", "start": 18538, "end": 19492}, {"filename": "/assets/runtime-random-data.bin", "start": 19492, "end": 19542}, {"filename": "/assets/runtime-stage-data.bin", "start": 19542, "end": 20044}, {"filename": "/assets/runtime-stage-order-data.bin", "start": 20044, "end": 20122}, {"filename": "/assets/runtime-stage-palette-data.bin", "start": 20122, "end": 46586}, {"filename": "/assets/runtime-stage-tilemap-data.bin", "start": 46586, "end": 49190}, {"filename": "/assets/runtime-stage1-first-wave-data.bin", "start": 49190, "end": 50004}, {"filename": "/assets/runtime-stage1-second-wave-data.bin", "start": 50004, "end": 50596}, {"filename": "/assets/sprite-lut.bin", "start": 50596, "end": 312796}, {"filename": "/assets/sprites.bmp", "start": 312796, "end": 6604370}, {"filename": "/assets/tiles.bmp", "start": 6604370, "end": 10798792}], "remote_package_size": 10798792});
 
   })();
 
-// end include: C:\Users\kryso\AppData\Local\Temp\tmp9xob569y.js
-// include: C:\Users\kryso\AppData\Local\Temp\tmpya1r5un9.js
+// end include: C:\Users\kryso\AppData\Local\Temp\tmpvgmhegkh.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmp5nw2ct8f.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\kryso\AppData\Local\Temp\tmpya1r5un9.js
-// include: C:\Users\kryso\AppData\Local\Temp\tmpz2d58jcd.js
+  // end include: C:\Users\kryso\AppData\Local\Temp\tmp5nw2ct8f.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmpif1606m3.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\kryso\AppData\Local\Temp\tmpz2d58jcd.js
+  // end include: C:\Users\kryso\AppData\Local\Temp\tmpif1606m3.js
 
 
 var programArgs = [];
@@ -683,7 +683,7 @@ function createExportWrapper(name, func, nargs) {
 var wasmBinaryFile;
 
 function findWasmBinary() {
-  return locateFile('Tengai-f878a8f2.wasm');
+  return locateFile('Tengai-7b86ca0d.wasm');
 }
 
 function getBinarySync(file) {
