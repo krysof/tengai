@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-  <title>Tengai · C++/WASM</title>
+  <title>Tengai · 纯 C++/WASM</title>
+  <meta name="tengai-release" content="e84e0047">
   <style>
     * { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; background: #000; overflow: hidden; }
     body { display: grid; place-items: center; touch-action: none; overscroll-behavior: none; }
+    #cabinet { width: 100%; height: 100%; display: grid; place-items: center; }
     #game {
       width: min(100vw, calc(100vh * 10 / 7));
       height: min(100vh, calc(100vw * 7 / 10));
@@ -25,11 +27,33 @@
       white-space: pre-wrap; user-select: text; -webkit-user-select: text;
       font: 14px/1.5 monospace;
     }
+    #copy-error { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 4; }
+    #controls { position: fixed; inset: 0; pointer-events: none; }
+    #joystick {
+      position: absolute; left: max(1rem, env(safe-area-inset-left)); bottom: max(1rem, env(safe-area-inset-bottom));
+      width: min(28vw, 9rem); aspect-ratio: 1; border-radius: 50%;
+      border: 2px solid #8889; background: #222a; pointer-events: auto; touch-action: none;
+    }
+    #joystick-knob {
+      position: absolute; left: 30%; top: 30%; width: 40%; height: 40%; border-radius: 50%;
+      background: #bbb; box-shadow: 0 0 .5rem #000; pointer-events: none;
+    }
+    #action-a {
+      position: absolute; right: max(1.2rem, env(safe-area-inset-right)); bottom: max(2rem, env(safe-area-inset-bottom));
+      width: min(18vw, 5.5rem); aspect-ratio: 1; border: 2px solid #f99; border-radius: 50%;
+      color: #fff; background: #a22c; font: 700 1.5rem system-ui; pointer-events: auto; touch-action: none;
+    }
+    @media (hover: hover) and (pointer: fine) { #controls { opacity: .45; } }
   </style>
 </head>
 <body>
-  <canvas id="game" width="320" height="224" tabindex="0"></canvas>
+  <main id="cabinet"><canvas id="game" width="320" height="224" tabindex="0"></canvas></main>
+  <div id="controls" aria-label="触摸控制">
+    <div id="joystick"><div id="joystick-knob"></div></div>
+    <button id="action-a" type="button">A</button>
+  </div>
   <pre id="status" hidden></pre>
+  <button id="copy-error" type="button" hidden>复制错误</button>
   <script>
     var Module = {
       canvas: document.getElementById('game'),
@@ -39,11 +63,24 @@
       }
     };
     for (const eventName of ['contextmenu', 'dragstart', 'selectstart']) {
-      document.addEventListener(eventName, event => event.preventDefault());
+      document.addEventListener(eventName, event => {
+        if (event.target.closest?.('#status, #copy-error')) return;
+        event.preventDefault();
+      });
     }
     document.addEventListener('dblclick', event => event.preventDefault(), {passive: false});
     document.addEventListener('gesturestart', event => event.preventDefault(), {passive: false});
+    document.getElementById('copy-error').addEventListener('click', async () => {
+      const text = document.getElementById('status').textContent;
+      try { await navigator.clipboard.writeText(text); }
+      catch (_) {
+        const selection = getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById('status'));
+        selection.removeAllRanges(); selection.addRange(range);
+      }
+    });
   </script>
-  <script async type="text/javascript" src="Tengai.js"></script>
+  <script async type="text/javascript" src="Tengai-e84e0047.js"></script>
 </body>
 </html>

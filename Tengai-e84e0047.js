@@ -79,7 +79,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\kryso\AppData\Local\Temp\tmpy2jav18z.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmp2pllzvqq.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -97,8 +97,8 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
         // web worker
         PACKAGE_PATH = encodeURIComponent(location.pathname.substring(0, location.pathname.lastIndexOf('/')) + '/');
       }
-      var PACKAGE_NAME = 'Tengai.data';
-      var REMOTE_PACKAGE_BASE = 'Tengai.data';
+      var PACKAGE_NAME = 'Tengai-e84e0047.data';
+      var REMOTE_PACKAGE_BASE = 'Tengai-e84e0047.data';
       var REMOTE_PACKAGE_NAME = Module['locateFile'] ? Module['locateFile'](REMOTE_PACKAGE_BASE, '') : REMOTE_PACKAGE_BASE;
       var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
 
@@ -177,9 +177,9 @@ Module['FS_createPath']("/", "assets", true, true);
             // canOwn this data in the filesystem, it is a slice into the heap that will never change
         Module['FS_createDataFile'](name, null, data, true, true, true);
           }
-          Module['removeRunDependency']('datafile_Tengai.data');
+          Module['removeRunDependency']('datafile_Tengai-e84e0047.data');
       }
-      Module['addRunDependency']('datafile_Tengai.data');
+      Module['addRunDependency']('datafile_Tengai-e84e0047.data');
 
       if (!Module['preloadResults']) Module['preloadResults'] = {};
 
@@ -199,25 +199,25 @@ Module['FS_createPath']("/", "assets", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/assets/sprite-lut.bin", "start": 0, "end": 262200}, {"filename": "/assets/sprites.bmp", "start": 262200, "end": 6553774}, {"filename": "/assets/visual-snapshot.bin", "start": 6553774, "end": 6554258}], "remote_package_size": 6554258});
+    loadPackage({"files": [{"filename": "/assets/character-select-scene-data.bin", "start": 0, "end": 5684}, {"filename": "/assets/character-select-visual-data.bin", "start": 5684, "end": 11722}, {"filename": "/assets/player-control-data.bin", "start": 11722, "end": 11922}, {"filename": "/assets/player-profile-data.bin", "start": 11922, "end": 12160}, {"filename": "/assets/runtime-player-primary-shot-data.bin", "start": 12160, "end": 18374}, {"filename": "/assets/runtime-player-stage-data.bin", "start": 18374, "end": 19328}, {"filename": "/assets/runtime-random-data.bin", "start": 19328, "end": 19378}, {"filename": "/assets/runtime-stage-data.bin", "start": 19378, "end": 19880}, {"filename": "/assets/runtime-stage-order-data.bin", "start": 19880, "end": 19958}, {"filename": "/assets/runtime-stage-palette-data.bin", "start": 19958, "end": 46422}, {"filename": "/assets/runtime-stage-tilemap-data.bin", "start": 46422, "end": 49026}, {"filename": "/assets/runtime-stage1-first-wave-data.bin", "start": 49026, "end": 49840}, {"filename": "/assets/runtime-stage1-second-wave-data.bin", "start": 49840, "end": 50432}, {"filename": "/assets/sprite-lut.bin", "start": 50432, "end": 312632}, {"filename": "/assets/sprites.bmp", "start": 312632, "end": 6604206}, {"filename": "/assets/tiles.bmp", "start": 6604206, "end": 10798628}], "remote_package_size": 10798628});
 
   })();
 
-// end include: C:\Users\kryso\AppData\Local\Temp\tmpy2jav18z.js
-// include: C:\Users\kryso\AppData\Local\Temp\tmph01i1m08.js
+// end include: C:\Users\kryso\AppData\Local\Temp\tmp2pllzvqq.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmpyl_l_mdg.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\kryso\AppData\Local\Temp\tmph01i1m08.js
-// include: C:\Users\kryso\AppData\Local\Temp\tmpmh2p00l1.js
+  // end include: C:\Users\kryso\AppData\Local\Temp\tmpyl_l_mdg.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmpxfj31xbi.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\kryso\AppData\Local\Temp\tmpmh2p00l1.js
+  // end include: C:\Users\kryso\AppData\Local\Temp\tmpxfj31xbi.js
 
 
 var programArgs = [];
@@ -683,7 +683,7 @@ function createExportWrapper(name, func, nargs) {
 var wasmBinaryFile;
 
 function findWasmBinary() {
-  return locateFile('Tengai.wasm');
+  return locateFile('Tengai-e84e0047.wasm');
 }
 
 function getBinarySync(file) {
@@ -5137,10 +5137,12 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('wasmMemory');
   ignoredModuleProp('wasmBinary');
 }
-function show_error(message) { const text = UTF8ToString(message); const status = document.getElementById('status'); status.textContent = text; status.hidden = false; console.error(text); }
-function present_rgba(pixels,width,height,presented_frames) { const canvas = Module.canvas; const context = canvas.getContext('2d', {alpha: false}); const bytes = new Uint8ClampedArray( HEAPU8.buffer, pixels, width * height * 4); context.putImageData(new ImageData(bytes.slice(), width, height), 0, 0); if ((presented_frames % 60) === 0) { document.title = 'Tengai - C++/WASM - frame ' + presented_frames; canvas.dataset.frames = String(presented_frames); } }
+function show_error(message) { const text = UTF8ToString(message); const status = document.getElementById('status'); status.textContent = text; status.hidden = false; const copy = document.getElementById('copy-error'); if (copy) copy.hidden = false; console.error(text); }
+function present_rgba(pixels,width,height,presented_frames,selected_character,countdown,player_x,player_y,player_ready,primary_projectiles,enemies) { const canvas = Module.canvas; const context = canvas.getContext('2d', {alpha: false}); const bytes = new Uint8ClampedArray( HEAPU8.buffer, pixels, width * height * 4); context.putImageData(new ImageData(bytes.slice(), width, height), 0, 0); canvas.dataset.primaryProjectiles = String(primary_projectiles); canvas.dataset.enemies = String(enemies); if ((presented_frames % 60) === 0) { document.title = 'Tengai - C++/WASM - frame ' + presented_frames; canvas.dataset.frames = String(presented_frames); canvas.dataset.character = String(selected_character); canvas.dataset.countdown = String(countdown); canvas.dataset.playerX = String(player_x); canvas.dataset.playerY = String(player_y); canvas.dataset.playerReady = String(player_ready); } }
+function install_input_handlers() { const masks = {left: 0x10, right: 0x20, down: 0x40, up: 0x80, a: 0x01}; const send = (mask, pressed) => { if (Module._tengai_set_input) Module._tengai_set_input(mask, pressed ? 1 : 0); }; const keys = { ArrowLeft: masks.left, ArrowRight: masks.right, ArrowDown: masks.down, ArrowUp: masks.up, KeyZ: masks.a, Enter: masks.a, }; addEventListener('keydown', event => { const mask = keys[event.code]; if (mask === undefined) return; event.preventDefault(); if (!event.repeat) send(mask, true); }, {passive: false}); addEventListener('keyup', event => { const mask = keys[event.code]; if (mask === undefined) return; event.preventDefault(); send(mask, false); }, {passive: false}); const joystick = document.getElementById('joystick'); const knob = document.getElementById('joystick-knob'); let activePointer = null; let activeDirections = 0; const updateDirections = next => { for (const mask of [masks.left, masks.right, masks.down, masks.up]) { if ((activeDirections & mask) !== (next & mask)) send(mask, (next & mask) !== 0); } activeDirections = next; }; const moveJoystick = event => { const bounds = joystick.getBoundingClientRect(); let dx = event.clientX - (bounds.left + bounds.width / 2); let dy = event.clientY - (bounds.top + bounds.height / 2); const radius = bounds.width * 0.31; const length = Math.hypot(dx, dy); if (length > radius) { dx *= radius / length; dy *= radius / length; } knob.style.transform = 'translate(' + dx + 'px,' + dy + 'px)'; const dead = bounds.width * 0.11; let next = 0; if (dx < -dead) next |= masks.left; if (dx > dead) next |= masks.right; if (dy < -dead) next |= masks.up; if (dy > dead) next |= masks.down; updateDirections(next); }; const releaseJoystick = event => { if (activePointer !== event.pointerId) return; activePointer = null; updateDirections(0); knob.style.transform = 'translate(0,0)'; joystick.releasePointerCapture?.(event.pointerId); }; joystick.addEventListener('pointerdown', event => { event.preventDefault(); activePointer = event.pointerId; joystick.setPointerCapture?.(event.pointerId); moveJoystick(event); }, {passive: false}); joystick.addEventListener('pointermove', event => { if (activePointer === event.pointerId) moveJoystick(event); }, {passive: false}); joystick.addEventListener('pointerup', releaseJoystick, {passive: false}); joystick.addEventListener('pointercancel', releaseJoystick, {passive: false}); const action = document.getElementById('action-a'); const releaseAction = event => { event.preventDefault(); send(masks.a, false); }; action.addEventListener('pointerdown', event => { event.preventDefault(); send(masks.a, true); action.setPointerCapture?.(event.pointerId); }, {passive: false}); action.addEventListener('pointerup', releaseAction, {passive: false}); action.addEventListener('pointercancel', releaseAction, {passive: false}); }
 
 // Imports from the Wasm binary.
+var _tengai_set_input = Module['_tengai_set_input'] = makeInvalidEarlyAccess('_tengai_set_input');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
 var _fflush = makeInvalidEarlyAccess('_fflush');
 var _strerror = makeInvalidEarlyAccess('_strerror');
@@ -5157,6 +5159,7 @@ var wasmMemory = makeInvalidEarlyAccess('wasmMemory');
 var wasmTable = makeInvalidEarlyAccess('wasmTable');
 
 function assignWasmExports(wasmExports) {
+  assert(typeof wasmExports['tengai_set_input'] != 'undefined', 'missing Wasm export: tengai_set_input');
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
   assert(typeof wasmExports['strerror'] != 'undefined', 'missing Wasm export: strerror');
@@ -5169,6 +5172,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['emscripten_stack_get_current'] != 'undefined', 'missing Wasm export: emscripten_stack_get_current');
   assert(typeof wasmExports['memory'] != 'undefined', 'missing Wasm export: memory');
   assert(typeof wasmExports['__indirect_function_table'] != 'undefined', 'missing Wasm export: __indirect_function_table');
+  _tengai_set_input = Module['_tengai_set_input'] = createExportWrapper('tengai_set_input', wasmExports['tengai_set_input'], 2);
   _main = Module['_main'] = createExportWrapper('main', wasmExports['main'], 2);
   _fflush = createExportWrapper('fflush', wasmExports['fflush'], 1);
   _strerror = createExportWrapper('strerror', wasmExports['strerror'], 1);
@@ -5212,6 +5216,8 @@ var wasmImports = {
   fd_seek: _fd_seek,
   /** @export */
   fd_write: _fd_write,
+  /** @export */
+  install_input_handlers,
   /** @export */
   present_rgba,
   /** @export */
