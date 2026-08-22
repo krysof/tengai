@@ -79,7 +79,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\kryso\AppData\Local\Temp\tmp2pllzvqq.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmp9xob569y.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -97,8 +97,8 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
         // web worker
         PACKAGE_PATH = encodeURIComponent(location.pathname.substring(0, location.pathname.lastIndexOf('/')) + '/');
       }
-      var PACKAGE_NAME = 'Tengai-e84e0047.data';
-      var REMOTE_PACKAGE_BASE = 'Tengai-e84e0047.data';
+      var PACKAGE_NAME = 'Tengai-f878a8f2.data';
+      var REMOTE_PACKAGE_BASE = 'Tengai-f878a8f2.data';
       var REMOTE_PACKAGE_NAME = Module['locateFile'] ? Module['locateFile'](REMOTE_PACKAGE_BASE, '') : REMOTE_PACKAGE_BASE;
       var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
 
@@ -177,9 +177,9 @@ Module['FS_createPath']("/", "assets", true, true);
             // canOwn this data in the filesystem, it is a slice into the heap that will never change
         Module['FS_createDataFile'](name, null, data, true, true, true);
           }
-          Module['removeRunDependency']('datafile_Tengai-e84e0047.data');
+          Module['removeRunDependency']('datafile_Tengai-f878a8f2.data');
       }
-      Module['addRunDependency']('datafile_Tengai-e84e0047.data');
+      Module['addRunDependency']('datafile_Tengai-f878a8f2.data');
 
       if (!Module['preloadResults']) Module['preloadResults'] = {};
 
@@ -203,21 +203,21 @@ Module['FS_createPath']("/", "assets", true, true);
 
   })();
 
-// end include: C:\Users\kryso\AppData\Local\Temp\tmp2pllzvqq.js
-// include: C:\Users\kryso\AppData\Local\Temp\tmpyl_l_mdg.js
+// end include: C:\Users\kryso\AppData\Local\Temp\tmp9xob569y.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmpya1r5un9.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\kryso\AppData\Local\Temp\tmpyl_l_mdg.js
-// include: C:\Users\kryso\AppData\Local\Temp\tmpxfj31xbi.js
+  // end include: C:\Users\kryso\AppData\Local\Temp\tmpya1r5un9.js
+// include: C:\Users\kryso\AppData\Local\Temp\tmpz2d58jcd.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\kryso\AppData\Local\Temp\tmpxfj31xbi.js
+  // end include: C:\Users\kryso\AppData\Local\Temp\tmpz2d58jcd.js
 
 
 var programArgs = [];
@@ -683,7 +683,7 @@ function createExportWrapper(name, func, nargs) {
 var wasmBinaryFile;
 
 function findWasmBinary() {
-  return locateFile('Tengai-e84e0047.wasm');
+  return locateFile('Tengai-f878a8f2.wasm');
 }
 
 function getBinarySync(file) {
@@ -5139,7 +5139,7 @@ function checkIncomingModuleAPI() {
 }
 function show_error(message) { const text = UTF8ToString(message); const status = document.getElementById('status'); status.textContent = text; status.hidden = false; const copy = document.getElementById('copy-error'); if (copy) copy.hidden = false; console.error(text); }
 function present_rgba(pixels,width,height,presented_frames,selected_character,countdown,player_x,player_y,player_ready,primary_projectiles,enemies) { const canvas = Module.canvas; const context = canvas.getContext('2d', {alpha: false}); const bytes = new Uint8ClampedArray( HEAPU8.buffer, pixels, width * height * 4); context.putImageData(new ImageData(bytes.slice(), width, height), 0, 0); canvas.dataset.primaryProjectiles = String(primary_projectiles); canvas.dataset.enemies = String(enemies); if ((presented_frames % 60) === 0) { document.title = 'Tengai - C++/WASM - frame ' + presented_frames; canvas.dataset.frames = String(presented_frames); canvas.dataset.character = String(selected_character); canvas.dataset.countdown = String(countdown); canvas.dataset.playerX = String(player_x); canvas.dataset.playerY = String(player_y); canvas.dataset.playerReady = String(player_ready); } }
-function install_input_handlers() { const masks = {left: 0x10, right: 0x20, down: 0x40, up: 0x80, a: 0x01}; const send = (mask, pressed) => { if (Module._tengai_set_input) Module._tengai_set_input(mask, pressed ? 1 : 0); }; const keys = { ArrowLeft: masks.left, ArrowRight: masks.right, ArrowDown: masks.down, ArrowUp: masks.up, KeyZ: masks.a, Enter: masks.a, }; addEventListener('keydown', event => { const mask = keys[event.code]; if (mask === undefined) return; event.preventDefault(); if (!event.repeat) send(mask, true); }, {passive: false}); addEventListener('keyup', event => { const mask = keys[event.code]; if (mask === undefined) return; event.preventDefault(); send(mask, false); }, {passive: false}); const joystick = document.getElementById('joystick'); const knob = document.getElementById('joystick-knob'); let activePointer = null; let activeDirections = 0; const updateDirections = next => { for (const mask of [masks.left, masks.right, masks.down, masks.up]) { if ((activeDirections & mask) !== (next & mask)) send(mask, (next & mask) !== 0); } activeDirections = next; }; const moveJoystick = event => { const bounds = joystick.getBoundingClientRect(); let dx = event.clientX - (bounds.left + bounds.width / 2); let dy = event.clientY - (bounds.top + bounds.height / 2); const radius = bounds.width * 0.31; const length = Math.hypot(dx, dy); if (length > radius) { dx *= radius / length; dy *= radius / length; } knob.style.transform = 'translate(' + dx + 'px,' + dy + 'px)'; const dead = bounds.width * 0.11; let next = 0; if (dx < -dead) next |= masks.left; if (dx > dead) next |= masks.right; if (dy < -dead) next |= masks.up; if (dy > dead) next |= masks.down; updateDirections(next); }; const releaseJoystick = event => { if (activePointer !== event.pointerId) return; activePointer = null; updateDirections(0); knob.style.transform = 'translate(0,0)'; joystick.releasePointerCapture?.(event.pointerId); }; joystick.addEventListener('pointerdown', event => { event.preventDefault(); activePointer = event.pointerId; joystick.setPointerCapture?.(event.pointerId); moveJoystick(event); }, {passive: false}); joystick.addEventListener('pointermove', event => { if (activePointer === event.pointerId) moveJoystick(event); }, {passive: false}); joystick.addEventListener('pointerup', releaseJoystick, {passive: false}); joystick.addEventListener('pointercancel', releaseJoystick, {passive: false}); const action = document.getElementById('action-a'); const releaseAction = event => { event.preventDefault(); send(masks.a, false); }; action.addEventListener('pointerdown', event => { event.preventDefault(); send(masks.a, true); action.setPointerCapture?.(event.pointerId); }, {passive: false}); action.addEventListener('pointerup', releaseAction, {passive: false}); action.addEventListener('pointercancel', releaseAction, {passive: false}); }
+function install_input_handlers() { const masks = {left: 0x10, right: 0x20, down: 0x40, up: 0x80, a: 0x01}; const send = (mask, pressed) => { if (Module._tengai_set_input) Module._tengai_set_input(mask, pressed ? 1 : 0); }; const keys = { ArrowLeft: masks.left, ArrowRight: masks.right, ArrowDown: masks.down, ArrowUp: masks.up, KeyZ: masks.a, Enter: masks.a, }; addEventListener('keydown', event => { const mask = keys[event.code]; if (mask === undefined) return; event.preventDefault(); if (!event.repeat) send(mask, true); }, {passive: false}); addEventListener('keyup', event => { const mask = keys[event.code]; if (mask === undefined) return; event.preventDefault(); send(mask, false); }, {passive: false}); const joystick = document.getElementById('joystick'); const knob = document.getElementById('joystick-knob'); const portraitLayout = matchMedia('(orientation: portrait) and (pointer: coarse)'); let activePointer = null; let activeDirections = 0; const updateDirections = next => { for (const mask of [masks.left, masks.right, masks.down, masks.up]) { if ((activeDirections & mask) !== (next & mask)) send(mask, (next & mask) !== 0); } activeDirections = next; }; const moveJoystick = event => { const bounds = joystick.getBoundingClientRect(); const screenDx = event.clientX - (bounds.left + bounds.width / 2); const screenDy = event.clientY - (bounds.top + bounds.height / 2); let dx = portraitLayout.matches ? screenDy : screenDx; let dy = portraitLayout.matches ? -screenDx : screenDy; const radius = bounds.width * 0.31; const length = Math.hypot(dx, dy); if (length > radius) { dx *= radius / length; dy *= radius / length; } knob.style.transform = 'translate(' + dx + 'px,' + dy + 'px)'; const dead = bounds.width * 0.11; let next = 0; if (dx < -dead) next |= masks.left; if (dx > dead) next |= masks.right; if (dy < -dead) next |= masks.up; if (dy > dead) next |= masks.down; updateDirections(next); }; const releaseJoystick = event => { if (activePointer !== event.pointerId) return; activePointer = null; updateDirections(0); knob.style.transform = 'translate(0,0)'; joystick.releasePointerCapture?.(event.pointerId); }; joystick.addEventListener('pointerdown', event => { event.preventDefault(); activePointer = event.pointerId; joystick.setPointerCapture?.(event.pointerId); moveJoystick(event); }, {passive: false}); joystick.addEventListener('pointermove', event => { if (activePointer === event.pointerId) moveJoystick(event); }, {passive: false}); joystick.addEventListener('pointerup', releaseJoystick, {passive: false}); joystick.addEventListener('pointercancel', releaseJoystick, {passive: false}); const action = document.getElementById('action-a'); const releaseAction = event => { event.preventDefault(); send(masks.a, false); }; action.addEventListener('pointerdown', event => { event.preventDefault(); send(masks.a, true); action.setPointerCapture?.(event.pointerId); }, {passive: false}); action.addEventListener('pointerup', releaseAction, {passive: false}); action.addEventListener('pointercancel', releaseAction, {passive: false}); action.addEventListener('lostpointercapture', event => { event.preventDefault(); send(masks.a, false); }, {passive: false}); const releaseAll = () => { activePointer = null; updateDirections(0); knob.style.transform = 'translate(0,0)'; send(masks.a, false); }; addEventListener('blur', releaseAll); document.addEventListener('visibilitychange', () => { if (document.visibilityState !== 'visible') releaseAll(); }); }
 
 // Imports from the Wasm binary.
 var _tengai_set_input = Module['_tengai_set_input'] = makeInvalidEarlyAccess('_tengai_set_input');

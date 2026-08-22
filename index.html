@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <title>Tengai · 纯 C++/WASM</title>
-  <meta name="tengai-release" content="e84e0047">
+  <meta name="tengai-release" content="f878a8f2">
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     html, body { width: 100%; height: 100%; margin: 0; background: #000; overflow: hidden; }
     body { display: grid; place-items: center; touch-action: none; overscroll-behavior: none; }
+    #landscape-shell { position: fixed; inset: 0; display: grid; place-items: center; }
     #cabinet { width: 100%; height: 100%; display: grid; place-items: center; }
     #game {
       width: min(100vw, calc(100vh * 10 / 7));
@@ -28,7 +29,7 @@
       font: 14px/1.5 monospace;
     }
     #copy-error { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 4; }
-    #controls { position: fixed; inset: 0; pointer-events: none; }
+    #controls { position: absolute; inset: 0; pointer-events: none; }
     #joystick {
       position: absolute; left: max(1rem, env(safe-area-inset-left)); bottom: max(1rem, env(safe-area-inset-bottom));
       width: min(28vw, 9rem); aspect-ratio: 1; border-radius: 50%;
@@ -44,13 +45,29 @@
       color: #fff; background: #a22c; font: 700 1.5rem system-ui; pointer-events: auto; touch-action: none;
     }
     @media (hover: hover) and (pointer: fine) { #controls { opacity: .45; } }
+    @media (orientation: portrait) and (pointer: coarse) {
+      #landscape-shell {
+        inset: auto; left: 50%; top: 50%;
+        width: 100vh; height: 100vw;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: 50% 50%;
+      }
+      #game {
+        width: min(100vh, calc(100vw * 10 / 7));
+        height: min(100vw, calc(100vh * 7 / 10));
+      }
+      #joystick { width: min(28vw, 7.5rem); }
+      #action-a { width: min(18vw, 5rem); }
+    }
   </style>
 </head>
 <body>
-  <main id="cabinet"><canvas id="game" width="320" height="224" tabindex="0"></canvas></main>
-  <div id="controls" aria-label="触摸控制">
-    <div id="joystick"><div id="joystick-knob"></div></div>
-    <button id="action-a" type="button">A</button>
+  <div id="landscape-shell">
+    <main id="cabinet"><canvas id="game" width="320" height="224" tabindex="0"></canvas></main>
+    <div id="controls" aria-label="触摸控制">
+      <div id="joystick"><div id="joystick-knob"></div></div>
+      <button id="action-a" type="button">A</button>
+    </div>
   </div>
   <pre id="status" hidden></pre>
   <button id="copy-error" type="button" hidden>复制错误</button>
@@ -69,7 +86,23 @@
       });
     }
     document.addEventListener('dblclick', event => event.preventDefault(), {passive: false});
-    document.addEventListener('gesturestart', event => event.preventDefault(), {passive: false});
+    for (const eventName of ['gesturestart', 'gesturechange', 'gestureend']) {
+      document.addEventListener(eventName, event => event.preventDefault(), {passive: false});
+    }
+    let wakeLock = null;
+    const requestWakeLock = async () => {
+      if (!('wakeLock' in navigator) || document.visibilityState !== 'visible' || wakeLock) return;
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        wakeLock.addEventListener('release', () => { wakeLock = null; }, {once: true});
+      } catch (_) { wakeLock = null; }
+    };
+    for (const eventName of ['pointerdown', 'touchstart', 'keydown']) {
+      document.addEventListener(eventName, requestWakeLock, {passive: true});
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') requestWakeLock();
+    });
     document.getElementById('copy-error').addEventListener('click', async () => {
       const text = document.getElementById('status').textContent;
       try { await navigator.clipboard.writeText(text); }
@@ -81,6 +114,6 @@
       }
     });
   </script>
-  <script async type="text/javascript" src="Tengai-e84e0047.js"></script>
+  <script async type="text/javascript" src="Tengai-f878a8f2.js"></script>
 </body>
 </html>
