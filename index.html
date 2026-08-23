@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-  <meta name="tengai-release" content="7b86ca0d">
+  <meta name="tengai-release" content="659e59ec">
   <title>Tengai · 纯 C++/WASM</title>
   <style>
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -44,6 +44,17 @@
       width: min(18vw, 5.5rem); aspect-ratio: 1; border: 2px solid #f99; border-radius: 50%;
       color: #fff; background: #a22c; font: 700 1.5rem system-ui; pointer-events: auto; touch-action: none;
     }
+    #frontend-buttons {
+      position: absolute; right: max(.8rem, env(safe-area-inset-right));
+      bottom: max(8rem, calc(env(safe-area-inset-bottom) + 7rem));
+      display: grid; gap: .45rem; pointer-events: auto;
+    }
+    #frontend-buttons button {
+      min-width: 4.6rem; min-height: 2rem; padding: .25rem .65rem;
+      border: 1px solid #bbbc; border-radius: 999px; color: #fff;
+      background: #222c; font: 700 .72rem system-ui; touch-action: none;
+      user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+    }
     @media (hover: hover) and (pointer: fine) { #controls { opacity: .45; } }
     @media (orientation: portrait) and (pointer: coarse) {
       #landscape-shell {
@@ -58,6 +69,7 @@
       }
       #joystick { width: min(28vw, 7.5rem); }
       #action-a { width: min(18vw, 5rem); }
+      #frontend-buttons { bottom: max(7rem, calc(env(safe-area-inset-bottom) + 6rem)); }
     }
   </style>
 </head>
@@ -66,6 +78,10 @@
     <main id="cabinet"><canvas id="game" width="320" height="224" tabindex="0"></canvas></main>
     <div id="controls" aria-label="触摸控制">
       <div id="joystick"><div id="joystick-knob"></div></div>
+      <div id="frontend-buttons">
+        <button id="coin" type="button">投币</button>
+        <button id="start" type="button">开始</button>
+      </div>
       <button id="action-a" type="button">A</button>
     </div>
   </div>
@@ -114,6 +130,6 @@
       }
     });
   </script>
-  <script async type="text/javascript" src="Tengai-7b86ca0d.js"></script>
+  <script async type="text/javascript" src="Tengai-659e59ec.js"></script>
 </body>
 </html>
