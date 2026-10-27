@@ -1,0 +1,1 @@
+{"scope":"cold-diagnostic-display-window-only","source_function":"00018b02-00018b82","input_policy_fields":[15,255,128,1,1],"raw_boot_input_bytes":[255,253,255,15],"environment":"zeroed diagnostic memory, source400 self-test seed0; no boot-owner tick or game-main loop","board_input_source":"boards/tengai.board.json runtime.io.defaults: dip high/low, system high, region"}
